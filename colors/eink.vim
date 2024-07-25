@@ -1,5 +1,5 @@
 " -----------------------------------------------------------------------------
-" Name:         eink-nvim
+" Name:         eink
 " Description:  Color eink Color Scheme for Vim
 " Author:       MeganerdDev <meganerd@meganerd.org>
 " Website:      https://github.com/MeganerdDev/eink-nvim
@@ -7,20 +7,20 @@
 " -----------------------------------------------------------------------------
 
 " Initialization: {{{
-let s:configuration = eink-nvim#get_configuration()
-let s:palette = eink-nvim#get_palette(s:configuration.background, s:configuration.colors_override)
+let s:configuration = eink#get_configuration()
+let s:palette = eink#get_palette(s:configuration.background, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
 let s:last_modified = 'Tue Jan  3 02:25:57 UTC 2023'
-let g:eink-nvim_loaded_file_types = []
+let g:eink_loaded_file_types = []
 
-if !(exists('g:colors_name') && g:colors_name ==# 'eink-nvim' && s:configuration.better_performance)
+if !(exists('g:colors_name') && g:colors_name ==# 'eink' && s:configuration.better_performance)
   highlight clear
   if exists('syntax_on')
     syntax reset
   endif
 endif
 
-let g:colors_name = 'eink-nvim'
+let g:colors_name = 'eink'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish
@@ -29,164 +29,164 @@ endif
 " Common Highlight Groups: {{{
 " UI: {{{
 if s:configuration.transparent_background >= 1
-  call eink-nvim#highlight('Normal', s:palette.fg, s:palette.none)
-  call eink-nvim#highlight('NormalNC', s:palette.fg, s:palette.none)
-  call eink-nvim#highlight('Terminal', s:palette.fg, s:palette.none)
+  call eink#highlight('Normal', s:palette.fg, s:palette.none)
+  call eink#highlight('NormalNC', s:palette.fg, s:palette.none)
+  call eink#highlight('Terminal', s:palette.fg, s:palette.none)
   if s:configuration.show_eob
-    call eink-nvim#highlight('EndOfBuffer', s:palette.bg4, s:palette.none)
+    call eink#highlight('EndOfBuffer', s:palette.bg4, s:palette.none)
   else
-    call eink-nvim#highlight('EndOfBuffer', s:palette.bg0, s:palette.none)
+    call eink#highlight('EndOfBuffer', s:palette.bg0, s:palette.none)
   endif
   if s:configuration.ui_contrast ==# 'low'
-    call eink-nvim#highlight('FoldColumn', s:palette.bg5, s:palette.none)
+    call eink#highlight('FoldColumn', s:palette.bg5, s:palette.none)
   else
-    call eink-nvim#highlight('FoldColumn', s:palette.grey0, s:palette.none)
+    call eink#highlight('FoldColumn', s:palette.grey0, s:palette.none)
   endif
-  call eink-nvim#highlight('Folded', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('SignColumn', s:palette.fg, s:palette.none)
-  call eink-nvim#highlight('ToolbarLine', s:palette.fg, s:palette.none)
+  call eink#highlight('Folded', s:palette.grey1, s:palette.none)
+  call eink#highlight('SignColumn', s:palette.fg, s:palette.none)
+  call eink#highlight('ToolbarLine', s:palette.fg, s:palette.none)
 else
-  call eink-nvim#highlight('Normal', s:palette.fg, s:palette.bg0)
+  call eink#highlight('Normal', s:palette.fg, s:palette.bg0)
   if s:configuration.dim_inactive_windows
-    call eink-nvim#highlight('NormalNC', s:palette.fg, s:palette.bg_dim)
+    call eink#highlight('NormalNC', s:palette.fg, s:palette.bg_dim)
   else
-    call eink-nvim#highlight('NormalNC', s:palette.fg, s:palette.bg0)
+    call eink#highlight('NormalNC', s:palette.fg, s:palette.bg0)
   endif
-  call eink-nvim#highlight('Terminal', s:palette.fg, s:palette.bg0)
+  call eink#highlight('Terminal', s:palette.fg, s:palette.bg0)
   if s:configuration.show_eob
     if s:configuration.dim_inactive_windows
-      call eink-nvim#highlight('EndOfBuffer', s:palette.bg4, s:palette.bg_dim)
+      call eink#highlight('EndOfBuffer', s:palette.bg4, s:palette.bg_dim)
     else
-      call eink-nvim#highlight('EndOfBuffer', s:palette.bg4, s:palette.bg0)
+      call eink#highlight('EndOfBuffer', s:palette.bg4, s:palette.bg0)
     endif
   else
     if s:configuration.dim_inactive_windows
-      call eink-nvim#highlight('EndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
+      call eink#highlight('EndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
     else
-      call eink-nvim#highlight('EndOfBuffer', s:palette.bg0, s:palette.bg0)
+      call eink#highlight('EndOfBuffer', s:palette.bg0, s:palette.bg0)
     endif
   endif
-  call eink-nvim#highlight('Folded', s:palette.grey1, s:palette.bg1)
-  call eink-nvim#highlight('ToolbarLine', s:palette.fg, s:palette.bg2)
+  call eink#highlight('Folded', s:palette.grey1, s:palette.bg1)
+  call eink#highlight('ToolbarLine', s:palette.fg, s:palette.bg2)
   if s:configuration.sign_column_background ==# 'grey'
-    call eink-nvim#highlight('SignColumn', s:palette.fg, s:palette.bg1)
-    call eink-nvim#highlight('FoldColumn', s:palette.grey2, s:palette.bg1)
+    call eink#highlight('SignColumn', s:palette.fg, s:palette.bg1)
+    call eink#highlight('FoldColumn', s:palette.grey2, s:palette.bg1)
   else
-    call eink-nvim#highlight('SignColumn', s:palette.fg, s:palette.none)
+    call eink#highlight('SignColumn', s:palette.fg, s:palette.none)
     if s:configuration.ui_contrast ==# 'low'
-      call eink-nvim#highlight('FoldColumn', s:palette.bg5, s:palette.none)
+      call eink#highlight('FoldColumn', s:palette.bg5, s:palette.none)
     else
-      call eink-nvim#highlight('FoldColumn', s:palette.grey0, s:palette.none)
+      call eink#highlight('FoldColumn', s:palette.grey0, s:palette.none)
     endif
   endif
 endif
-call eink-nvim#highlight('IncSearch', s:palette.bg0, s:palette.red)
-call eink-nvim#highlight('Search', s:palette.bg0, s:palette.green)
-call eink-nvim#highlight('ColorColumn', s:palette.none, s:palette.bg1)
+call eink#highlight('IncSearch', s:palette.bg0, s:palette.red)
+call eink#highlight('Search', s:palette.bg0, s:palette.green)
+call eink#highlight('ColorColumn', s:palette.none, s:palette.bg1)
 if s:configuration.ui_contrast ==# 'low'
-  call eink-nvim#highlight('Conceal', s:palette.bg5, s:palette.none)
+  call eink#highlight('Conceal', s:palette.bg5, s:palette.none)
 else
-  call eink-nvim#highlight('Conceal', s:palette.grey0, s:palette.none)
+  call eink#highlight('Conceal', s:palette.grey0, s:palette.none)
 endif
 if s:configuration.cursor ==# 'auto'
-  call eink-nvim#highlight('Cursor', s:palette.none, s:palette.none, 'reverse')
+  call eink#highlight('Cursor', s:palette.none, s:palette.none, 'reverse')
 else
-  call eink-nvim#highlight('Cursor', s:palette.bg0, s:palette[s:configuration.cursor])
+  call eink#highlight('Cursor', s:palette.bg0, s:palette[s:configuration.cursor])
 endif
 highlight! link vCursor Cursor
 highlight! link iCursor Cursor
 highlight! link lCursor Cursor
 highlight! link CursorIM Cursor
 if &diff
-  call eink-nvim#highlight('CursorLine', s:palette.none, s:palette.none, 'underline')
-  call eink-nvim#highlight('CursorColumn', s:palette.none, s:palette.none, 'bold')
+  call eink#highlight('CursorLine', s:palette.none, s:palette.none, 'underline')
+  call eink#highlight('CursorColumn', s:palette.none, s:palette.none, 'bold')
 else
-  call eink-nvim#highlight('CursorLine', s:palette.none, s:palette.bg1)
-  call eink-nvim#highlight('CursorColumn', s:palette.none, s:palette.bg1)
+  call eink#highlight('CursorLine', s:palette.none, s:palette.bg1)
+  call eink#highlight('CursorColumn', s:palette.none, s:palette.bg1)
 endif
 if s:configuration.ui_contrast ==# 'low'
-  call eink-nvim#highlight('LineNr', s:palette.bg5, s:palette.none)
+  call eink#highlight('LineNr', s:palette.bg5, s:palette.none)
   if &diff
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey1, s:palette.none, 'underline')
+    call eink#highlight('CursorLineNr', s:palette.grey1, s:palette.none, 'underline')
   elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
+    call eink#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
   else
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
+    call eink#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
   endif
 else
-  call eink-nvim#highlight('LineNr', s:palette.grey0, s:palette.none)
+  call eink#highlight('LineNr', s:palette.grey0, s:palette.none)
   if &diff
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
+    call eink#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
   elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
+    call eink#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
   else
-    call eink-nvim#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
+    call eink#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
   endif
 endif
-call eink-nvim#highlight('DiffAdd', s:palette.none, s:palette.bg_green)
-call eink-nvim#highlight('DiffChange', s:palette.none, s:palette.bg_blue)
-call eink-nvim#highlight('DiffDelete', s:palette.none, s:palette.bg_red)
-call eink-nvim#highlight('DiffText', s:palette.bg0, s:palette.blue)
-call eink-nvim#highlight('Directory', s:palette.green, s:palette.none)
-call eink-nvim#highlight('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('ModeMsg', s:palette.fg, s:palette.none, 'bold')
-call eink-nvim#highlight('MoreMsg', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('MatchParen', s:palette.none, s:palette.bg4)
-call eink-nvim#highlight('NonText', s:palette.bg4, s:palette.none)
-call eink-nvim#highlight('Whitespace', s:palette.bg4, s:palette.none)
-call eink-nvim#highlight('SpecialKey', s:palette.bg3, s:palette.none)
-call eink-nvim#highlight('Pmenu', s:palette.fg, s:palette.bg2)
-call eink-nvim#highlight('PmenuSbar', s:palette.none, s:palette.bg2)
-call eink-nvim#highlight('PmenuSel', s:palette.bg0, s:palette.statusline1)
+call eink#highlight('DiffAdd', s:palette.none, s:palette.bg_green)
+call eink#highlight('DiffChange', s:palette.none, s:palette.bg_blue)
+call eink#highlight('DiffDelete', s:palette.none, s:palette.bg_red)
+call eink#highlight('DiffText', s:palette.bg0, s:palette.blue)
+call eink#highlight('Directory', s:palette.green, s:palette.none)
+call eink#highlight('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
+call eink#highlight('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('ModeMsg', s:palette.fg, s:palette.none, 'bold')
+call eink#highlight('MoreMsg', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('MatchParen', s:palette.none, s:palette.bg4)
+call eink#highlight('NonText', s:palette.bg4, s:palette.none)
+call eink#highlight('Whitespace', s:palette.bg4, s:palette.none)
+call eink#highlight('SpecialKey', s:palette.bg3, s:palette.none)
+call eink#highlight('Pmenu', s:palette.fg, s:palette.bg2)
+call eink#highlight('PmenuSbar', s:palette.none, s:palette.bg2)
+call eink#highlight('PmenuSel', s:palette.bg0, s:palette.statusline1)
 highlight! link WildMenu PmenuSel
-call eink-nvim#highlight('PmenuThumb', s:palette.none, s:palette.grey0)
-call eink-nvim#highlight('NormalFloat', s:palette.fg, s:palette.bg2)
-call eink-nvim#highlight('FloatBorder', s:palette.grey1, s:palette.bg2)
-call eink-nvim#highlight('Question', s:palette.yellow, s:palette.none)
+call eink#highlight('PmenuThumb', s:palette.none, s:palette.grey0)
+call eink#highlight('NormalFloat', s:palette.fg, s:palette.bg2)
+call eink#highlight('FloatBorder', s:palette.grey1, s:palette.bg2)
+call eink#highlight('Question', s:palette.yellow, s:palette.none)
 if s:configuration.spell_foreground ==# 'none'
-  call eink-nvim#highlight('SpellBad', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
-  call eink-nvim#highlight('SpellCap', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
-  call eink-nvim#highlight('SpellLocal', s:palette.none, s:palette.none, 'undercurl', s:palette.aqua)
-  call eink-nvim#highlight('SpellRare', s:palette.none, s:palette.none, 'undercurl', s:palette.purple)
+  call eink#highlight('SpellBad', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
+  call eink#highlight('SpellCap', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
+  call eink#highlight('SpellLocal', s:palette.none, s:palette.none, 'undercurl', s:palette.aqua)
+  call eink#highlight('SpellRare', s:palette.none, s:palette.none, 'undercurl', s:palette.purple)
 else
-  call eink-nvim#highlight('SpellBad', s:palette.red, s:palette.none, 'undercurl', s:palette.red)
-  call eink-nvim#highlight('SpellCap', s:palette.blue, s:palette.none, 'undercurl', s:palette.blue)
-  call eink-nvim#highlight('SpellLocal', s:palette.aqua, s:palette.none, 'undercurl', s:palette.aqua)
-  call eink-nvim#highlight('SpellRare', s:palette.purple, s:palette.none, 'undercurl', s:palette.purple)
+  call eink#highlight('SpellBad', s:palette.red, s:palette.none, 'undercurl', s:palette.red)
+  call eink#highlight('SpellCap', s:palette.blue, s:palette.none, 'undercurl', s:palette.blue)
+  call eink#highlight('SpellLocal', s:palette.aqua, s:palette.none, 'undercurl', s:palette.aqua)
+  call eink#highlight('SpellRare', s:palette.purple, s:palette.none, 'undercurl', s:palette.purple)
 endif
 if s:configuration.transparent_background == 2
-  call eink-nvim#highlight('StatusLine', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('StatusLineTerm', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('StatusLineNC', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('StatusLineTermNC', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('TabLine', s:palette.grey2, s:palette.bg3)
-  call eink-nvim#highlight('TabLineFill', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('TabLineSel', s:palette.bg0, s:palette.statusline1)
+  call eink#highlight('StatusLine', s:palette.grey1, s:palette.none)
+  call eink#highlight('StatusLineTerm', s:palette.grey1, s:palette.none)
+  call eink#highlight('StatusLineNC', s:palette.grey1, s:palette.none)
+  call eink#highlight('StatusLineTermNC', s:palette.grey1, s:palette.none)
+  call eink#highlight('TabLine', s:palette.grey2, s:palette.bg3)
+  call eink#highlight('TabLineFill', s:palette.grey1, s:palette.none)
+  call eink#highlight('TabLineSel', s:palette.bg0, s:palette.statusline1)
 else
-  call eink-nvim#highlight('StatusLine', s:palette.grey1, s:palette.bg2)
-  call eink-nvim#highlight('StatusLineTerm', s:palette.grey1, s:palette.bg1)
-  call eink-nvim#highlight('StatusLineNC', s:palette.grey1, s:palette.bg1)
-  call eink-nvim#highlight('StatusLineTermNC', s:palette.grey1, s:palette.bg0)
-  call eink-nvim#highlight('TabLine', s:palette.grey2, s:palette.bg3)
-  call eink-nvim#highlight('TabLineFill', s:palette.grey1, s:palette.bg1)
-  call eink-nvim#highlight('TabLineSel', s:palette.bg0, s:palette.statusline1)
+  call eink#highlight('StatusLine', s:palette.grey1, s:palette.bg2)
+  call eink#highlight('StatusLineTerm', s:palette.grey1, s:palette.bg1)
+  call eink#highlight('StatusLineNC', s:palette.grey1, s:palette.bg1)
+  call eink#highlight('StatusLineTermNC', s:palette.grey1, s:palette.bg0)
+  call eink#highlight('TabLine', s:palette.grey2, s:palette.bg3)
+  call eink#highlight('TabLineFill', s:palette.grey1, s:palette.bg1)
+  call eink#highlight('TabLineSel', s:palette.bg0, s:palette.statusline1)
 endif
 if s:configuration.dim_inactive_windows
-  call eink-nvim#highlight('VertSplit', s:palette.bg4, s:palette.bg_dim)
+  call eink#highlight('VertSplit', s:palette.bg4, s:palette.bg_dim)
 else
-  call eink-nvim#highlight('VertSplit', s:palette.bg4, s:palette.none)
+  call eink#highlight('VertSplit', s:palette.bg4, s:palette.none)
 endif
 highlight! link WinSeparator VertSplit
-call eink-nvim#highlight('Visual', s:palette.none, s:palette.bg_visual)
-call eink-nvim#highlight('VisualNOS', s:palette.none, s:palette.bg_visual)
-call eink-nvim#highlight('QuickFixLine', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('Debug', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('debugPC', s:palette.bg0, s:palette.green)
-call eink-nvim#highlight('debugBreakpoint', s:palette.bg0, s:palette.red)
-call eink-nvim#highlight('ToolbarButton', s:palette.bg0, s:palette.green)
+call eink#highlight('Visual', s:palette.none, s:palette.bg_visual)
+call eink#highlight('VisualNOS', s:palette.none, s:palette.bg_visual)
+call eink#highlight('QuickFixLine', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('Debug', s:palette.orange, s:palette.none)
+call eink#highlight('debugPC', s:palette.bg0, s:palette.green)
+call eink#highlight('debugBreakpoint', s:palette.bg0, s:palette.red)
+call eink#highlight('ToolbarButton', s:palette.bg0, s:palette.green)
 if has('nvim')
-  call eink-nvim#highlight('Substitute', s:palette.bg0, s:palette.yellow)
+  call eink#highlight('Substitute', s:palette.bg0, s:palette.yellow)
   highlight! link WinBarNC Grey
   highlight! link DiagnosticFloatingError ErrorFloat
   highlight! link DiagnosticFloatingWarn WarningFloat
@@ -241,121 +241,121 @@ if has('nvim')
 endif
 " }}}
 " Syntax: {{{
-call eink-nvim#highlight('Boolean', s:palette.purple, s:palette.none)
-call eink-nvim#highlight('Number', s:palette.purple, s:palette.none)
-call eink-nvim#highlight('Float', s:palette.purple, s:palette.none)
+call eink#highlight('Boolean', s:palette.purple, s:palette.none)
+call eink#highlight('Number', s:palette.purple, s:palette.none)
+call eink#highlight('Float', s:palette.purple, s:palette.none)
 if s:configuration.enable_italic
-  call eink-nvim#highlight('PreProc', s:palette.purple, s:palette.none, 'italic')
-  call eink-nvim#highlight('PreCondit', s:palette.purple, s:palette.none, 'italic')
-  call eink-nvim#highlight('Include', s:palette.purple, s:palette.none, 'italic')
-  call eink-nvim#highlight('Define', s:palette.purple, s:palette.none, 'italic')
-  call eink-nvim#highlight('Conditional', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('Repeat', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('Keyword', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('Typedef', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('Exception', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('Statement', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('PreProc', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('PreCondit', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('Include', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('Define', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('Conditional', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('Repeat', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('Keyword', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('Typedef', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('Exception', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('Statement', s:palette.red, s:palette.none, 'italic')
 else
-  call eink-nvim#highlight('PreProc', s:palette.purple, s:palette.none)
-  call eink-nvim#highlight('PreCondit', s:palette.purple, s:palette.none)
-  call eink-nvim#highlight('Include', s:palette.purple, s:palette.none)
-  call eink-nvim#highlight('Define', s:palette.purple, s:palette.none)
-  call eink-nvim#highlight('Conditional', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('Repeat', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('Keyword', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('Typedef', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('Exception', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('Statement', s:palette.red, s:palette.none)
+  call eink#highlight('PreProc', s:palette.purple, s:palette.none)
+  call eink#highlight('PreCondit', s:palette.purple, s:palette.none)
+  call eink#highlight('Include', s:palette.purple, s:palette.none)
+  call eink#highlight('Define', s:palette.purple, s:palette.none)
+  call eink#highlight('Conditional', s:palette.red, s:palette.none)
+  call eink#highlight('Repeat', s:palette.red, s:palette.none)
+  call eink#highlight('Keyword', s:palette.red, s:palette.none)
+  call eink#highlight('Typedef', s:palette.red, s:palette.none)
+  call eink#highlight('Exception', s:palette.red, s:palette.none)
+  call eink#highlight('Statement', s:palette.red, s:palette.none)
 endif
-call eink-nvim#highlight('Error', s:palette.red, s:palette.none)
-call eink-nvim#highlight('StorageClass', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Tag', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Label', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Structure', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Operator', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Title', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('Special', s:palette.yellow, s:palette.none)
-call eink-nvim#highlight('SpecialChar', s:palette.yellow, s:palette.none)
-call eink-nvim#highlight('Type', s:palette.yellow, s:palette.none)
-call eink-nvim#highlight('Function', s:palette.green, s:palette.none)
-call eink-nvim#highlight('String', s:palette.green, s:palette.none)
-call eink-nvim#highlight('Character', s:palette.green, s:palette.none)
-call eink-nvim#highlight('Constant', s:palette.aqua, s:palette.none)
-call eink-nvim#highlight('Macro', s:palette.aqua, s:palette.none)
-call eink-nvim#highlight('Identifier', s:palette.blue, s:palette.none)
+call eink#highlight('Error', s:palette.red, s:palette.none)
+call eink#highlight('StorageClass', s:palette.orange, s:palette.none)
+call eink#highlight('Tag', s:palette.orange, s:palette.none)
+call eink#highlight('Label', s:palette.orange, s:palette.none)
+call eink#highlight('Structure', s:palette.orange, s:palette.none)
+call eink#highlight('Operator', s:palette.orange, s:palette.none)
+call eink#highlight('Title', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('Special', s:palette.yellow, s:palette.none)
+call eink#highlight('SpecialChar', s:palette.yellow, s:palette.none)
+call eink#highlight('Type', s:palette.yellow, s:palette.none)
+call eink#highlight('Function', s:palette.green, s:palette.none)
+call eink#highlight('String', s:palette.green, s:palette.none)
+call eink#highlight('Character', s:palette.green, s:palette.none)
+call eink#highlight('Constant', s:palette.aqua, s:palette.none)
+call eink#highlight('Macro', s:palette.aqua, s:palette.none)
+call eink#highlight('Identifier', s:palette.blue, s:palette.none)
 if s:configuration.disable_italic_comment
-  call eink-nvim#highlight('Comment', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('SpecialComment', s:palette.grey1, s:palette.none)
-  call eink-nvim#highlight('Todo', s:palette.purple, s:palette.none)
+  call eink#highlight('Comment', s:palette.grey1, s:palette.none)
+  call eink#highlight('SpecialComment', s:palette.grey1, s:palette.none)
+  call eink#highlight('Todo', s:palette.purple, s:palette.none)
 else
-  call eink-nvim#highlight('Comment', s:palette.grey1, s:palette.none, 'italic')
-  call eink-nvim#highlight('SpecialComment', s:palette.grey1, s:palette.none, 'italic')
-  call eink-nvim#highlight('Todo', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('Comment', s:palette.grey1, s:palette.none, 'italic')
+  call eink#highlight('SpecialComment', s:palette.grey1, s:palette.none, 'italic')
+  call eink#highlight('Todo', s:palette.purple, s:palette.none, 'italic')
 endif
-call eink-nvim#highlight('Delimiter', s:palette.fg, s:palette.none)
-call eink-nvim#highlight('Ignore', s:palette.grey1, s:palette.none)
-call eink-nvim#highlight('Underlined', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('Delimiter', s:palette.fg, s:palette.none)
+call eink#highlight('Ignore', s:palette.grey1, s:palette.none)
+call eink#highlight('Underlined', s:palette.none, s:palette.none, 'underline')
 " }}}
 " Predefined Highlight Groups: {{{
-call eink-nvim#highlight('Fg', s:palette.fg, s:palette.none)
-call eink-nvim#highlight('Grey', s:palette.grey1, s:palette.none)
-call eink-nvim#highlight('Red', s:palette.red, s:palette.none)
-call eink-nvim#highlight('Orange', s:palette.orange, s:palette.none)
-call eink-nvim#highlight('Yellow', s:palette.yellow, s:palette.none)
-call eink-nvim#highlight('Green', s:palette.green, s:palette.none)
-call eink-nvim#highlight('Aqua', s:palette.aqua, s:palette.none)
-call eink-nvim#highlight('Blue', s:palette.blue, s:palette.none)
-call eink-nvim#highlight('Purple', s:palette.purple, s:palette.none)
+call eink#highlight('Fg', s:palette.fg, s:palette.none)
+call eink#highlight('Grey', s:palette.grey1, s:palette.none)
+call eink#highlight('Red', s:palette.red, s:palette.none)
+call eink#highlight('Orange', s:palette.orange, s:palette.none)
+call eink#highlight('Yellow', s:palette.yellow, s:palette.none)
+call eink#highlight('Green', s:palette.green, s:palette.none)
+call eink#highlight('Aqua', s:palette.aqua, s:palette.none)
+call eink#highlight('Blue', s:palette.blue, s:palette.none)
+call eink#highlight('Purple', s:palette.purple, s:palette.none)
 if s:configuration.enable_italic
-  call eink-nvim#highlight('RedItalic', s:palette.red, s:palette.none, 'italic')
-  call eink-nvim#highlight('OrangeItalic', s:palette.orange, s:palette.none, 'italic')
-  call eink-nvim#highlight('YellowItalic', s:palette.yellow, s:palette.none, 'italic')
-  call eink-nvim#highlight('GreenItalic', s:palette.green, s:palette.none, 'italic')
-  call eink-nvim#highlight('AquaItalic', s:palette.aqua, s:palette.none, 'italic')
-  call eink-nvim#highlight('BlueItalic', s:palette.blue, s:palette.none, 'italic')
-  call eink-nvim#highlight('PurpleItalic', s:palette.purple, s:palette.none, 'italic')
+  call eink#highlight('RedItalic', s:palette.red, s:palette.none, 'italic')
+  call eink#highlight('OrangeItalic', s:palette.orange, s:palette.none, 'italic')
+  call eink#highlight('YellowItalic', s:palette.yellow, s:palette.none, 'italic')
+  call eink#highlight('GreenItalic', s:palette.green, s:palette.none, 'italic')
+  call eink#highlight('AquaItalic', s:palette.aqua, s:palette.none, 'italic')
+  call eink#highlight('BlueItalic', s:palette.blue, s:palette.none, 'italic')
+  call eink#highlight('PurpleItalic', s:palette.purple, s:palette.none, 'italic')
 else
-  call eink-nvim#highlight('RedItalic', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('OrangeItalic', s:palette.orange, s:palette.none)
-  call eink-nvim#highlight('YellowItalic', s:palette.yellow, s:palette.none)
-  call eink-nvim#highlight('GreenItalic', s:palette.green, s:palette.none)
-  call eink-nvim#highlight('AquaItalic', s:palette.aqua, s:palette.none)
-  call eink-nvim#highlight('BlueItalic', s:palette.blue, s:palette.none)
-  call eink-nvim#highlight('PurpleItalic', s:palette.purple, s:palette.none)
+  call eink#highlight('RedItalic', s:palette.red, s:palette.none)
+  call eink#highlight('OrangeItalic', s:palette.orange, s:palette.none)
+  call eink#highlight('YellowItalic', s:palette.yellow, s:palette.none)
+  call eink#highlight('GreenItalic', s:palette.green, s:palette.none)
+  call eink#highlight('AquaItalic', s:palette.aqua, s:palette.none)
+  call eink#highlight('BlueItalic', s:palette.blue, s:palette.none)
+  call eink#highlight('PurpleItalic', s:palette.purple, s:palette.none)
 endif
 if s:configuration.transparent_background || s:configuration.sign_column_background ==# 'none'
-  call eink-nvim#highlight('RedSign', s:palette.red, s:palette.none)
-  call eink-nvim#highlight('OrangeSign', s:palette.orange, s:palette.none)
-  call eink-nvim#highlight('YellowSign', s:palette.yellow, s:palette.none)
-  call eink-nvim#highlight('GreenSign', s:palette.green, s:palette.none)
-  call eink-nvim#highlight('AquaSign', s:palette.aqua, s:palette.none)
-  call eink-nvim#highlight('BlueSign', s:palette.blue, s:palette.none)
-  call eink-nvim#highlight('PurpleSign', s:palette.purple, s:palette.none)
+  call eink#highlight('RedSign', s:palette.red, s:palette.none)
+  call eink#highlight('OrangeSign', s:palette.orange, s:palette.none)
+  call eink#highlight('YellowSign', s:palette.yellow, s:palette.none)
+  call eink#highlight('GreenSign', s:palette.green, s:palette.none)
+  call eink#highlight('AquaSign', s:palette.aqua, s:palette.none)
+  call eink#highlight('BlueSign', s:palette.blue, s:palette.none)
+  call eink#highlight('PurpleSign', s:palette.purple, s:palette.none)
 else
-  call eink-nvim#highlight('RedSign', s:palette.red, s:palette.bg1)
-  call eink-nvim#highlight('OrangeSign', s:palette.orange, s:palette.bg1)
-  call eink-nvim#highlight('YellowSign', s:palette.yellow, s:palette.bg1)
-  call eink-nvim#highlight('GreenSign', s:palette.green, s:palette.bg1)
-  call eink-nvim#highlight('AquaSign', s:palette.aqua, s:palette.bg1)
-  call eink-nvim#highlight('BlueSign', s:palette.blue, s:palette.bg1)
-  call eink-nvim#highlight('PurpleSign', s:palette.purple, s:palette.bg1)
+  call eink#highlight('RedSign', s:palette.red, s:palette.bg1)
+  call eink#highlight('OrangeSign', s:palette.orange, s:palette.bg1)
+  call eink#highlight('YellowSign', s:palette.yellow, s:palette.bg1)
+  call eink#highlight('GreenSign', s:palette.green, s:palette.bg1)
+  call eink#highlight('AquaSign', s:palette.aqua, s:palette.bg1)
+  call eink#highlight('BlueSign', s:palette.blue, s:palette.bg1)
+  call eink#highlight('PurpleSign', s:palette.purple, s:palette.bg1)
 endif
 if s:configuration.diagnostic_text_highlight
-  call eink-nvim#highlight('ErrorText', s:palette.none, s:palette.bg_red, 'undercurl', s:palette.red)
-  call eink-nvim#highlight('WarningText', s:palette.none, s:palette.bg_yellow, 'undercurl', s:palette.yellow)
-  call eink-nvim#highlight('InfoText', s:palette.none, s:palette.bg_blue, 'undercurl', s:palette.blue)
-  call eink-nvim#highlight('HintText', s:palette.none, s:palette.bg_green, 'undercurl', s:palette.green)
+  call eink#highlight('ErrorText', s:palette.none, s:palette.bg_red, 'undercurl', s:palette.red)
+  call eink#highlight('WarningText', s:palette.none, s:palette.bg_yellow, 'undercurl', s:palette.yellow)
+  call eink#highlight('InfoText', s:palette.none, s:palette.bg_blue, 'undercurl', s:palette.blue)
+  call eink#highlight('HintText', s:palette.none, s:palette.bg_green, 'undercurl', s:palette.green)
 else
-  call eink-nvim#highlight('ErrorText', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
-  call eink-nvim#highlight('WarningText', s:palette.none, s:palette.none, 'undercurl', s:palette.yellow)
-  call eink-nvim#highlight('InfoText', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
-  call eink-nvim#highlight('HintText', s:palette.none, s:palette.none, 'undercurl', s:palette.green)
+  call eink#highlight('ErrorText', s:palette.none, s:palette.none, 'undercurl', s:palette.red)
+  call eink#highlight('WarningText', s:palette.none, s:palette.none, 'undercurl', s:palette.yellow)
+  call eink#highlight('InfoText', s:palette.none, s:palette.none, 'undercurl', s:palette.blue)
+  call eink#highlight('HintText', s:palette.none, s:palette.none, 'undercurl', s:palette.green)
 endif
 if s:configuration.diagnostic_line_highlight
-  call eink-nvim#highlight('ErrorLine', s:palette.none, s:palette.bg_red)
-  call eink-nvim#highlight('WarningLine', s:palette.none, s:palette.bg_yellow)
-  call eink-nvim#highlight('InfoLine', s:palette.none, s:palette.bg_blue)
-  call eink-nvim#highlight('HintLine', s:palette.none, s:palette.bg_green)
+  call eink#highlight('ErrorLine', s:palette.none, s:palette.bg_red)
+  call eink#highlight('WarningLine', s:palette.none, s:palette.bg_yellow)
+  call eink#highlight('InfoLine', s:palette.none, s:palette.bg_blue)
+  call eink#highlight('HintLine', s:palette.none, s:palette.bg_green)
 else
   highlight clear ErrorLine
   highlight clear WarningLine
@@ -373,16 +373,16 @@ else
   highlight! link VirtualTextInfo Blue
   highlight! link VirtualTextHint Green
 endif
-call eink-nvim#highlight('ErrorFloat', s:palette.red, s:palette.bg2)
-call eink-nvim#highlight('WarningFloat', s:palette.yellow, s:palette.bg2)
-call eink-nvim#highlight('InfoFloat', s:palette.blue, s:palette.bg2)
-call eink-nvim#highlight('HintFloat', s:palette.green, s:palette.bg2)
+call eink#highlight('ErrorFloat', s:palette.red, s:palette.bg2)
+call eink#highlight('WarningFloat', s:palette.yellow, s:palette.bg2)
+call eink#highlight('InfoFloat', s:palette.blue, s:palette.bg2)
+call eink#highlight('HintFloat', s:palette.green, s:palette.bg2)
 if &diff
-  call eink-nvim#highlight('CurrentWord', s:palette.bg0, s:palette.green)
+  call eink#highlight('CurrentWord', s:palette.bg0, s:palette.green)
 elseif s:configuration.current_word ==# 'grey background'
-  call eink-nvim#highlight('CurrentWord', s:palette.none, s:palette.bg2)
+  call eink#highlight('CurrentWord', s:palette.none, s:palette.bg2)
 else
-  call eink-nvim#highlight('CurrentWord', s:palette.none, s:palette.none, s:configuration.current_word)
+  call eink#highlight('CurrentWord', s:palette.none, s:palette.none, s:configuration.current_word)
 endif
 " }}}
 " }}}
@@ -427,12 +427,12 @@ endif
 " }}}
 " Plugins: {{{
 " nvim-treesitter/nvim-treesitter {{{
-call eink-nvim#highlight('TSStrong', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('TSEmphasis', s:palette.none, s:palette.none, 'italic')
-call eink-nvim#highlight('TSUnderline', s:palette.none, s:palette.none, 'underline')
-call eink-nvim#highlight('TSNote', s:palette.bg0, s:palette.blue, 'bold')
-call eink-nvim#highlight('TSWarning', s:palette.bg0, s:palette.yellow, 'bold')
-call eink-nvim#highlight('TSDanger', s:palette.bg0, s:palette.red, 'bold')
+call eink#highlight('TSStrong', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('TSEmphasis', s:palette.none, s:palette.none, 'italic')
+call eink#highlight('TSUnderline', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('TSNote', s:palette.bg0, s:palette.blue, 'bold')
+call eink#highlight('TSWarning', s:palette.bg0, s:palette.yellow, 'bold')
+call eink#highlight('TSDanger', s:palette.bg0, s:palette.red, 'bold')
 highlight! link TSAnnotation Purple
 highlight! link TSAttribute Purple
 highlight! link TSBoolean Purple
@@ -584,11 +584,11 @@ if has('nvim-0.8.0')
 endif
 " }}}
 " neoclide/coc.nvim {{{
-call eink-nvim#highlight('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('CocSearch', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('CocPumSearch', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('CocMarkdownHeader', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('CocMarkdownLink', s:palette.green, s:palette.none, 'underline')
+call eink#highlight('CocHoverRange', s:palette.none, s:palette.none, 'bold,underline')
+call eink#highlight('CocSearch', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('CocPumSearch', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('CocMarkdownHeader', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('CocMarkdownLink', s:palette.green, s:palette.none, 'underline')
 highlight! link CocMarkdownCode Green
 highlight! link CocPumShortcut Grey
 highlight! link CocPumVirtualText Grey
@@ -751,28 +751,28 @@ highlight! link SyntasticWarningLine WarningLine
 " }}}
 " Yggdroot/LeaderF {{{
 if !exists('g:Lf_StlColorscheme')
-  let g:Lf_StlColorscheme = 'eink-nvim'
+  let g:Lf_StlColorscheme = 'eink'
 endif
 if !exists('g:Lf_PopupColorscheme')
-  let g:Lf_PopupColorscheme = 'eink-nvim'
+  let g:Lf_PopupColorscheme = 'eink'
 endif
-call eink-nvim#highlight('Lf_hl_match', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_match0', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_match1', s:palette.aqua, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_match2', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_match3', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_match4', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_matchRefine', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('Lf_hl_popup_normalMode', s:palette.bg0, s:palette.red, 'bold')
-call eink-nvim#highlight('Lf_hl_popup_inputMode', s:palette.bg0, s:palette.green, 'bold')
-call eink-nvim#highlight('Lf_hl_popup_category', s:palette.fg, s:palette.bg4)
-call eink-nvim#highlight('Lf_hl_popup_nameOnlyMode', s:palette.fg, s:palette.bg3)
-call eink-nvim#highlight('Lf_hl_popup_fullPathMode', s:palette.fg, s:palette.bg3)
-call eink-nvim#highlight('Lf_hl_popup_fuzzyMode', s:palette.fg, s:palette.bg3)
-call eink-nvim#highlight('Lf_hl_popup_regexMode', s:palette.fg, s:palette.bg3)
-call eink-nvim#highlight('Lf_hl_popup_lineInfo', s:palette.yellow, s:palette.bg4)
-call eink-nvim#highlight('Lf_hl_popup_total', s:palette.bg0, s:palette.orange)
-call eink-nvim#highlight('Lf_hl_popup_cursor', s:palette.bg0, s:palette.green)
+call eink#highlight('Lf_hl_match', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_match0', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_match1', s:palette.aqua, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_match2', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_match3', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_match4', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_matchRefine', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('Lf_hl_popup_normalMode', s:palette.bg0, s:palette.red, 'bold')
+call eink#highlight('Lf_hl_popup_inputMode', s:palette.bg0, s:palette.green, 'bold')
+call eink#highlight('Lf_hl_popup_category', s:palette.fg, s:palette.bg4)
+call eink#highlight('Lf_hl_popup_nameOnlyMode', s:palette.fg, s:palette.bg3)
+call eink#highlight('Lf_hl_popup_fullPathMode', s:palette.fg, s:palette.bg3)
+call eink#highlight('Lf_hl_popup_fuzzyMode', s:palette.fg, s:palette.bg3)
+call eink#highlight('Lf_hl_popup_regexMode', s:palette.fg, s:palette.bg3)
+call eink#highlight('Lf_hl_popup_lineInfo', s:palette.yellow, s:palette.bg4)
+call eink#highlight('Lf_hl_popup_total', s:palette.bg0, s:palette.orange)
+call eink#highlight('Lf_hl_popup_cursor', s:palette.bg0, s:palette.green)
 highlight! link Lf_hl_cursorline Fg
 highlight! link Lf_hl_selection DiffAdd
 highlight! link Lf_hl_rgHighlight Visual
@@ -785,19 +785,19 @@ highlight! link Lf_hl_popup_blank Lf_hl_popup_window
 highlight! link Lf_hl_popup_spin Red
 " }}}
 " liuchengxu/vim-clap {{{
-call eink-nvim#highlight('ClapSelected', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapCurrentSelection', s:palette.none, s:palette.bg1, 'bold')
-call eink-nvim#highlight('ClapSpinner', s:palette.orange, s:palette.bg2, 'bold')
-call eink-nvim#highlight('ClapBlines', s:palette.fg, s:palette.none)
-call eink-nvim#highlight('ClapProviderId', s:palette.fg, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches1', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches2', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches3', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches4', s:palette.aqua, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches5', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapMatches6', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapFuzzyMatches', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('ClapNoMatchesFound', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('ClapSelected', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('ClapCurrentSelection', s:palette.none, s:palette.bg1, 'bold')
+call eink#highlight('ClapSpinner', s:palette.orange, s:palette.bg2, 'bold')
+call eink#highlight('ClapBlines', s:palette.fg, s:palette.none)
+call eink#highlight('ClapProviderId', s:palette.fg, s:palette.none, 'bold')
+call eink#highlight('ClapMatches1', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('ClapMatches2', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('ClapMatches3', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('ClapMatches4', s:palette.aqua, s:palette.none, 'bold')
+call eink#highlight('ClapMatches5', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('ClapMatches6', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('ClapFuzzyMatches', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('ClapNoMatchesFound', s:palette.red, s:palette.none, 'bold')
 highlight! link ClapInput Pmenu
 highlight! link ClapDisplay Pmenu
 highlight! link ClapPreview Pmenu
@@ -837,20 +837,20 @@ let g:fzf_colors = {
       \ }
 " }}}
 " Shougo/denite.nvim {{{
-call eink-nvim#highlight('deniteMatchedChar', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('deniteMatchedRange', s:palette.green, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('deniteInput', s:palette.green, s:palette.bg3, 'bold')
-call eink-nvim#highlight('deniteStatusLineNumber', s:palette.purple, s:palette.bg3)
-call eink-nvim#highlight('deniteStatusLinePath', s:palette.fg, s:palette.bg3)
+call eink#highlight('deniteMatchedChar', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('deniteMatchedRange', s:palette.green, s:palette.none, 'bold,underline')
+call eink#highlight('deniteInput', s:palette.green, s:palette.bg3, 'bold')
+call eink#highlight('deniteStatusLineNumber', s:palette.purple, s:palette.bg3)
+call eink#highlight('deniteStatusLinePath', s:palette.fg, s:palette.bg3)
 highlight! link deniteSelectedLin Green
 " }}}
 " kien/ctrlp.vim {{{
-call eink-nvim#highlight('CtrlPMatch', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('CtrlPPrtBase', s:palette.bg3, s:palette.none)
-call eink-nvim#highlight('CtrlPLinePre', s:palette.bg3, s:palette.none)
-call eink-nvim#highlight('CtrlPMode1', s:palette.blue, s:palette.bg3, 'bold')
-call eink-nvim#highlight('CtrlPMode2', s:palette.bg0, s:palette.blue, 'bold')
-call eink-nvim#highlight('CtrlPStats', s:palette.grey1, s:palette.bg3, 'bold')
+call eink#highlight('CtrlPMatch', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('CtrlPPrtBase', s:palette.bg3, s:palette.none)
+call eink#highlight('CtrlPLinePre', s:palette.bg3, s:palette.none)
+call eink#highlight('CtrlPMode1', s:palette.blue, s:palette.bg3, 'bold')
+call eink#highlight('CtrlPMode2', s:palette.bg0, s:palette.blue, 'bold')
+call eink#highlight('CtrlPStats', s:palette.grey1, s:palette.bg3, 'bold')
 highlight! link CtrlPNoEntries Red
 highlight! link CtrlPPrtCursor Blue
 " }}}
@@ -879,16 +879,16 @@ highlight! link SignifyLineChangeDelete DiffChange
 highlight! link SignifyLineDelete DiffDelete
 " }}}
 " andymass/vim-matchup {{{
-call eink-nvim#highlight('MatchParenCur', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('MatchWord', s:palette.none, s:palette.none, 'underline')
-call eink-nvim#highlight('MatchWordCur', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('MatchParenCur', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('MatchWord', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('MatchWordCur', s:palette.none, s:palette.none, 'underline')
 " }}}
 " easymotion/vim-easymotion {{{
 highlight! link EasyMotionTarget Search
 highlight! link EasyMotionShade Grey
 " }}}
 " justinmk/vim-sneak {{{
-call eink-nvim#highlight('SneakLabelMask', s:palette.orange, s:palette.orange)
+call eink#highlight('SneakLabelMask', s:palette.orange, s:palette.orange)
 highlight! link Sneak Search
 highlight! link SneakLabel Search
 highlight! link SneakScope DiffText
@@ -901,7 +901,7 @@ highlight! link multiple_cursors_cursor Cursor
 highlight! link multiple_cursors_visual Visual
 " }}}
 " mg979/vim-visual-multi {{{
-call eink-nvim#highlight('VMCursor', s:palette.blue, s:palette.bg_blue)
+call eink#highlight('VMCursor', s:palette.blue, s:palette.bg_blue)
 let g:VM_Mono_hl = 'VMCursor'
 let g:VM_Extend_hl = 'Visual'
 let g:VM_Cursor_hl = 'VMCursor'
@@ -931,8 +931,8 @@ endif
 " }}}
 " nathanaelkane/vim-indent-guides {{{
 if get(g:, 'indent_guides_auto_colors', 1) == 0
-  call eink-nvim#highlight('IndentGuidesOdd', s:palette.bg0, s:palette.bg1)
-  call eink-nvim#highlight('IndentGuidesEven', s:palette.bg0, s:palette.bg2)
+  call eink#highlight('IndentGuidesOdd', s:palette.bg0, s:palette.bg1)
+  call eink#highlight('IndentGuidesEven', s:palette.bg0, s:palette.bg2)
 endif
 " }}}
 " thiagoalessio/rainbow_levels.vim {{{
@@ -989,8 +989,8 @@ let g:limelight_conceal_ctermfg = s:palette.grey0[1]
 let g:limelight_conceal_guifg = s:palette.grey0[0]
 " }}}
 " unblevable/quick-scope {{{
-call eink-nvim#highlight('QuickScopePrimary', s:palette.aqua, s:palette.none, 'underline')
-call eink-nvim#highlight('QuickScopeSecondary', s:palette.blue, s:palette.none, 'underline')
+call eink#highlight('QuickScopePrimary', s:palette.aqua, s:palette.none, 'underline')
+call eink#highlight('QuickScopeSecondary', s:palette.blue, s:palette.none, 'underline')
 " }}}
 " APZelos/blamer.nvim {{{
 highlight! link Blamer Grey
@@ -1021,8 +1021,8 @@ highlight! link BookmarkAnnotationLine DiffAdd
 " }}}
 if has('nvim')
 " hrsh7th/nvim-cmp {{{
-call eink-nvim#highlight('CmpItemAbbrMatch', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('CmpItemAbbrMatchFuzzy', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('CmpItemAbbrMatch', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('CmpItemAbbrMatchFuzzy', s:palette.green, s:palette.none, 'bold')
 highlight! link CmpItemAbbr Fg
 highlight! link CmpItemAbbrDeprecated Grey
 highlight! link CmpItemMenu Fg
@@ -1059,7 +1059,7 @@ highlight! link TroubleSource Grey
 highlight! link TroubleCode Grey
 " }}}
 " nvim-telescope/telescope.nvim {{{
-call eink-nvim#highlight('TelescopeMatching', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('TelescopeMatching', s:palette.green, s:palette.none, 'bold')
 highlight! link TelescopeBorder Grey
 highlight! link TelescopePromptPrefix Orange
 highlight! link TelescopeSelection DiffAdd
@@ -1077,14 +1077,14 @@ highlight! link GitSignsDeleteLn DiffDelete
 highlight! link GitSignsCurrentLineBlame Grey
 " }}}
 " phaazon/hop.nvim {{{
-call eink-nvim#highlight('HopNextKey', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('HopNextKey1', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('HopNextKey', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('HopNextKey1', s:palette.green, s:palette.none, 'bold')
 highlight! link HopNextKey2 Green
 highlight! link HopUnmatched Grey
 " }}}
 " lukas-reineke/indent-blankline.nvim {{{
-call eink-nvim#highlight('IndentBlanklineContextChar', s:palette.grey1, s:palette.none, 'nocombine')
-call eink-nvim#highlight('IndentBlanklineChar', s:palette.bg5, s:palette.none, 'nocombine')
+call eink#highlight('IndentBlanklineContextChar', s:palette.grey1, s:palette.none, 'nocombine')
+call eink#highlight('IndentBlanklineChar', s:palette.bg5, s:palette.none, 'nocombine')
 highlight! link IndentBlanklineSpaceChar IndentBlanklineChar
 highlight! link IndentBlanklineSpaceCharBlankline IndentBlanklineChar
 " }}}
@@ -1098,23 +1098,23 @@ highlight! link rainbowcol6 Blue
 highlight! link rainbowcol7 Purple
 " }}}
 " romgrk/barbar.nvim {{{
-call eink-nvim#highlight('BufferCurrent', s:palette.fg, s:palette.bg0)
-call eink-nvim#highlight('BufferCurrentIndex', s:palette.fg, s:palette.bg0)
-call eink-nvim#highlight('BufferCurrentMod', s:palette.blue, s:palette.bg0)
-call eink-nvim#highlight('BufferCurrentSign', s:palette.statusline1, s:palette.bg0)
-call eink-nvim#highlight('BufferCurrentTarget', s:palette.red, s:palette.bg0, 'bold')
-call eink-nvim#highlight('BufferVisible', s:palette.fg, s:palette.bg_dim)
-call eink-nvim#highlight('BufferVisibleIndex', s:palette.fg, s:palette.bg_dim)
-call eink-nvim#highlight('BufferVisibleMod', s:palette.blue, s:palette.bg_dim)
-call eink-nvim#highlight('BufferVisibleSign', s:palette.statusline1, s:palette.bg_dim)
-call eink-nvim#highlight('BufferVisibleTarget', s:palette.yellow, s:palette.bg_dim, 'bold')
-call eink-nvim#highlight('BufferInactive', s:palette.grey1, s:palette.bg_dim)
-call eink-nvim#highlight('BufferInactiveIndex', s:palette.grey1, s:palette.bg_dim)
-call eink-nvim#highlight('BufferInactiveMod', s:palette.grey1, s:palette.bg_dim)
-call eink-nvim#highlight('BufferInactiveSign', s:palette.grey0, s:palette.bg_dim)
-call eink-nvim#highlight('BufferInactiveTarget', s:palette.yellow, s:palette.bg_dim, 'bold')
-call eink-nvim#highlight('BufferTabpages', s:palette.grey1, s:palette.bg_dim, 'bold')
-call eink-nvim#highlight('BufferTabpageFill', s:palette.bg_dim, s:palette.bg_dim)
+call eink#highlight('BufferCurrent', s:palette.fg, s:palette.bg0)
+call eink#highlight('BufferCurrentIndex', s:palette.fg, s:palette.bg0)
+call eink#highlight('BufferCurrentMod', s:palette.blue, s:palette.bg0)
+call eink#highlight('BufferCurrentSign', s:palette.statusline1, s:palette.bg0)
+call eink#highlight('BufferCurrentTarget', s:palette.red, s:palette.bg0, 'bold')
+call eink#highlight('BufferVisible', s:palette.fg, s:palette.bg_dim)
+call eink#highlight('BufferVisibleIndex', s:palette.fg, s:palette.bg_dim)
+call eink#highlight('BufferVisibleMod', s:palette.blue, s:palette.bg_dim)
+call eink#highlight('BufferVisibleSign', s:palette.statusline1, s:palette.bg_dim)
+call eink#highlight('BufferVisibleTarget', s:palette.yellow, s:palette.bg_dim, 'bold')
+call eink#highlight('BufferInactive', s:palette.grey1, s:palette.bg_dim)
+call eink#highlight('BufferInactiveIndex', s:palette.grey1, s:palette.bg_dim)
+call eink#highlight('BufferInactiveMod', s:palette.grey1, s:palette.bg_dim)
+call eink#highlight('BufferInactiveSign', s:palette.grey0, s:palette.bg_dim)
+call eink#highlight('BufferInactiveTarget', s:palette.yellow, s:palette.bg_dim, 'bold')
+call eink#highlight('BufferTabpages', s:palette.grey1, s:palette.bg_dim, 'bold')
+call eink#highlight('BufferTabpageFill', s:palette.bg_dim, s:palette.bg_dim)
 " }}}
 " rcarriga/nvim-notify {{{
 highlight! link NotifyERRORBorder Red
@@ -1134,8 +1134,8 @@ highlight! link NotifyDEBUGTitle Grey
 highlight! link NotifyTRACETitle Purple
 " }}}
 " rcarriga/nvim-dap-ui {{{
-call eink-nvim#highlight('DapUIModifiedValue', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('DapUIBreakpointsCurrentLine', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('DapUIModifiedValue', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('DapUIBreakpointsCurrentLine', s:palette.blue, s:palette.none, 'bold')
 highlight! link DapUIScope Blue
 highlight! link DapUIType Purple
 highlight! link DapUIDecoration Blue
@@ -1151,10 +1151,10 @@ highlight! link DapUIBreakpointsPath Blue
 highlight! link DapUIBreakpointsInfo Green
 " }}}
 " glepnir/lspsaga.nvim {{{
-call eink-nvim#highlight('LspFloatWinBorder', s:palette.bg0, s:palette.bg0)
-call eink-nvim#highlight('LspSagaDiagnosticHeader', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('LspSagaCodeActionTitle', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('DefinitionPreviewTitle', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('LspFloatWinBorder', s:palette.bg0, s:palette.bg0)
+call eink#highlight('LspSagaDiagnosticHeader', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('LspSagaCodeActionTitle', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('DefinitionPreviewTitle', s:palette.blue, s:palette.none, 'bold')
 highlight! link LspSagaDiagnosticError Red
 highlight! link LspSagaDiagnosticWarn Yellow
 highlight! link LspSagaDiagnosticInfo Blue
@@ -1187,31 +1187,31 @@ highlight! link DefinitionCount Grey
 highlight! link TargetFileName Grey
 " }}}
 " b0o/incline.nvim {{{
-call eink-nvim#highlight('InclineNormalNC', s:palette.grey1, s:palette.bg2)
+call eink#highlight('InclineNormalNC', s:palette.grey1, s:palette.bg2)
 " }}}
 " echasnovski/mini.nvim {{{
-call eink-nvim#highlight('MiniIndentscopePrefix', s:palette.none, s:palette.none, 'nocombine')
-call eink-nvim#highlight('MiniJump2dSpot', s:palette.orange, s:palette.none, 'bold,nocombine')
-call eink-nvim#highlight('MiniStarterCurrent', s:palette.none, s:palette.none, 'nocombine')
-call eink-nvim#highlight('MiniStatuslineDevinfo', s:palette.grey1, s:palette.bg1)
-call eink-nvim#highlight('MiniStatuslineFileinfo', s:palette.grey1, s:palette.bg1)
-call eink-nvim#highlight('MiniStatuslineModeCommand', s:palette.bg0, s:palette.aqua, 'bold')
-call eink-nvim#highlight('MiniStatuslineModeInsert', s:palette.bg0, s:palette.statusline2, 'bold')
-call eink-nvim#highlight('MiniStatuslineModeNormal', s:palette.bg0, s:palette.statusline1, 'bold')
-call eink-nvim#highlight('MiniStatuslineModeOther', s:palette.bg0, s:palette.purple, 'bold')
-call eink-nvim#highlight('MiniStatuslineModeReplace', s:palette.bg0, s:palette.orange, 'bold')
-call eink-nvim#highlight('MiniStatuslineModeVisual', s:palette.bg0, s:palette.statusline3, 'bold')
-call eink-nvim#highlight('MiniTablineCurrent', s:palette.fg, s:palette.bg4)
-call eink-nvim#highlight('MiniTablineHidden', s:palette.grey1, s:palette.bg2)
-call eink-nvim#highlight('MiniTablineModifiedCurrent', s:palette.blue, s:palette.bg4)
-call eink-nvim#highlight('MiniTablineModifiedHidden', s:palette.grey1, s:palette.bg2)
-call eink-nvim#highlight('MiniTablineModifiedVisible', s:palette.blue, s:palette.bg2)
-call eink-nvim#highlight('MiniTablineTabpagesection', s:palette.bg0, s:palette.statusline1, 'bold')
-call eink-nvim#highlight('MiniTablineVisible', s:palette.fg, s:palette.bg2)
-call eink-nvim#highlight('MiniTestEmphasis', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('MiniTestFail', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('MiniTestPass', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('MiniTrailspace', s:palette.none, s:palette.red)
+call eink#highlight('MiniIndentscopePrefix', s:palette.none, s:palette.none, 'nocombine')
+call eink#highlight('MiniJump2dSpot', s:palette.orange, s:palette.none, 'bold,nocombine')
+call eink#highlight('MiniStarterCurrent', s:palette.none, s:palette.none, 'nocombine')
+call eink#highlight('MiniStatuslineDevinfo', s:palette.grey1, s:palette.bg1)
+call eink#highlight('MiniStatuslineFileinfo', s:palette.grey1, s:palette.bg1)
+call eink#highlight('MiniStatuslineModeCommand', s:palette.bg0, s:palette.aqua, 'bold')
+call eink#highlight('MiniStatuslineModeInsert', s:palette.bg0, s:palette.statusline2, 'bold')
+call eink#highlight('MiniStatuslineModeNormal', s:palette.bg0, s:palette.statusline1, 'bold')
+call eink#highlight('MiniStatuslineModeOther', s:palette.bg0, s:palette.purple, 'bold')
+call eink#highlight('MiniStatuslineModeReplace', s:palette.bg0, s:palette.orange, 'bold')
+call eink#highlight('MiniStatuslineModeVisual', s:palette.bg0, s:palette.statusline3, 'bold')
+call eink#highlight('MiniTablineCurrent', s:palette.fg, s:palette.bg4)
+call eink#highlight('MiniTablineHidden', s:palette.grey1, s:palette.bg2)
+call eink#highlight('MiniTablineModifiedCurrent', s:palette.blue, s:palette.bg4)
+call eink#highlight('MiniTablineModifiedHidden', s:palette.grey1, s:palette.bg2)
+call eink#highlight('MiniTablineModifiedVisible', s:palette.blue, s:palette.bg2)
+call eink#highlight('MiniTablineTabpagesection', s:palette.bg0, s:palette.statusline1, 'bold')
+call eink#highlight('MiniTablineVisible', s:palette.fg, s:palette.bg2)
+call eink#highlight('MiniTestEmphasis', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('MiniTestFail', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('MiniTestPass', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('MiniTrailspace', s:palette.none, s:palette.red)
 highlight! link MiniStarterItemBullet Grey
 highlight! link MiniStarterItemPrefix Yellow
 highlight! link MiniStarterQuery Blue
@@ -1231,11 +1231,11 @@ highlight! link MiniSurround IncSearch
 highlight! link MiniTablineFill TabLineFill
 " }}}
 " ggandor/lightspeed.nvim {{{
-call eink-nvim#highlight('LightspeedLabel', s:palette.red, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('LightspeedLabelDistant', s:palette.blue, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('LightspeedShortcut', s:palette.bg0, s:palette.red, 'bold')
-call eink-nvim#highlight('LightspeedUnlabeledMatch', s:palette.fg, s:palette.none, 'bold')
-call eink-nvim#highlight('LightspeedPendingOpArea', s:palette.bg0, s:palette.green)
+call eink#highlight('LightspeedLabel', s:palette.red, s:palette.none, 'bold,underline')
+call eink#highlight('LightspeedLabelDistant', s:palette.blue, s:palette.none, 'bold,underline')
+call eink#highlight('LightspeedShortcut', s:palette.bg0, s:palette.red, 'bold')
+call eink#highlight('LightspeedUnlabeledMatch', s:palette.fg, s:palette.none, 'bold')
+call eink#highlight('LightspeedPendingOpArea', s:palette.bg0, s:palette.green)
 highlight! link LightspeedMaskedChar Purple
 highlight! link LightspeedGreyWash Grey
 " }}}
@@ -1255,27 +1255,27 @@ highlight! link diffIndexLine Purple
 " }}}
 " }}}
 " Generate the `after/syntax` directory based on the comment tags in this file.
-" For example, the content between `syn_begin: sh/zsh` and `syn_end` will be placed in `after/syntax/sh/eink-nvim.vim` and `after/syntax/zsh/eink-nvim.vim`.
-if eink-nvim#syn_exists(s:path) " If the syntax files exist.
+" For example, the content between `syn_begin: sh/zsh` and `syn_end` will be placed in `after/syntax/sh/eink.vim` and `after/syntax/zsh/eink.vim`.
+if eink#syn_exists(s:path) " If the syntax files exist.
   if s:configuration.better_performance
-    if !eink-nvim#syn_newest(s:path, s:last_modified) " Regenerate if it's not up to date.
-      call eink-nvim#syn_clean(s:path, 0)
-      call eink-nvim#syn_gen(s:path, s:last_modified, 'update')
+    if !eink#syn_newest(s:path, s:last_modified) " Regenerate if it's not up to date.
+      call eink#syn_clean(s:path, 0)
+      call eink#syn_gen(s:path, s:last_modified, 'update')
     endif
     finish
   else
-    call eink-nvim#syn_clean(s:path, 1)
+    call eink#syn_clean(s:path, 1)
   endif
 else
   if s:configuration.better_performance
-    call eink-nvim#syn_gen(s:path, s:last_modified, 'generate')
+    call eink#syn_gen(s:path, s:last_modified, 'generate')
     finish
   endif
 endif
 " syn_begin: vim-plug {{{
 " https://github.com/junegunn/vim-plug
-call eink-nvim#highlight('plug1', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('plugNumber', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('plug1', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('plugNumber', s:palette.yellow, s:palette.none, 'bold')
 highlight! link plug2 Green
 highlight! link plugBracket Grey
 highlight! link plugName Aqua
@@ -1468,10 +1468,10 @@ highlight! link DirvishArg Yellow
 " syn_begin: NvimTree {{{
 " https://github.com/kyazdani42/nvim-tree.lua
 if !s:configuration.transparent_background
-  call eink-nvim#highlight('NvimTreeNormal', s:palette.fg, s:palette.bg_dim)
-  call eink-nvim#highlight('NvimTreeEndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
-  call eink-nvim#highlight('NvimTreeVertSplit', s:palette.bg0, s:palette.bg0)
-  call eink-nvim#highlight('NvimTreeCursorLine', s:palette.none, s:palette.bg0)
+  call eink#highlight('NvimTreeNormal', s:palette.fg, s:palette.bg_dim)
+  call eink#highlight('NvimTreeEndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
+  call eink#highlight('NvimTreeVertSplit', s:palette.bg0, s:palette.bg0)
+  call eink#highlight('NvimTreeCursorLine', s:palette.none, s:palette.bg0)
 endif
 highlight! link NvimTreeSymlink Fg
 highlight! link NvimTreeFolderName Green
@@ -1512,9 +1512,9 @@ highlight! link FernWindowSelectStatusLine TabLine
 " syn_begin: neo-tree {{{
 " https://github.com/nvim-neo-tree/neo-tree.nvim
 if !s:configuration.transparent_background
-  call eink-nvim#highlight('NeoTreeNormal', s:palette.fg, s:palette.bg_dim)
-  call eink-nvim#highlight('NeoTreeEndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
-  call eink-nvim#highlight('NeoTreeVertSplit', s:palette.bg0, s:palette.bg0)
+  call eink#highlight('NeoTreeNormal', s:palette.fg, s:palette.bg_dim)
+  call eink#highlight('NeoTreeEndOfBuffer', s:palette.bg_dim, s:palette.bg_dim)
+  call eink#highlight('NeoTreeVertSplit', s:palette.bg0, s:palette.bg0)
 endif
 highlight! link NeoTreeGitAdded Green
 highlight! link NeoTreeGitConflict Yellow
@@ -1532,19 +1532,19 @@ highlight! link NeoTreeRootName Title
 " syn_end }}}
 " syn_begin: octo {{{
 " https://github.com/pwntester/octo.nvim
-call eink-nvim#highlight('OctoViewer', s:palette.bg0, s:palette.blue)
-call eink-nvim#highlight('OctoGreenFloat', s:palette.green, s:palette.bg2)
-call eink-nvim#highlight('OctoRedFloat', s:palette.red, s:palette.bg2)
-call eink-nvim#highlight('OctoPurpleFloat', s:palette.purple, s:palette.bg2)
-call eink-nvim#highlight('OctoYellowFloat', s:palette.yellow, s:palette.bg2)
-call eink-nvim#highlight('OctoBlueFloat', s:palette.blue, s:palette.bg2)
-call eink-nvim#highlight('OctoGreyFloat', s:palette.grey1, s:palette.bg2)
-call eink-nvim#highlight('OctoBubbleGreen', s:palette.bg0, s:palette.green)
-call eink-nvim#highlight('OctoBubbleRed', s:palette.bg0, s:palette.red)
-call eink-nvim#highlight('OctoBubblePurple', s:palette.bg0, s:palette.purple)
-call eink-nvim#highlight('OctoBubbleYellow', s:palette.bg0, s:palette.yellow)
-call eink-nvim#highlight('OctoBubbleBlue', s:palette.bg0, s:palette.blue)
-call eink-nvim#highlight('OctoBubbleGrey', s:palette.bg0, s:palette.grey1)
+call eink#highlight('OctoViewer', s:palette.bg0, s:palette.blue)
+call eink#highlight('OctoGreenFloat', s:palette.green, s:palette.bg2)
+call eink#highlight('OctoRedFloat', s:palette.red, s:palette.bg2)
+call eink#highlight('OctoPurpleFloat', s:palette.purple, s:palette.bg2)
+call eink#highlight('OctoYellowFloat', s:palette.yellow, s:palette.bg2)
+call eink#highlight('OctoBlueFloat', s:palette.blue, s:palette.bg2)
+call eink#highlight('OctoGreyFloat', s:palette.grey1, s:palette.bg2)
+call eink#highlight('OctoBubbleGreen', s:palette.bg0, s:palette.green)
+call eink#highlight('OctoBubbleRed', s:palette.bg0, s:palette.red)
+call eink#highlight('OctoBubblePurple', s:palette.bg0, s:palette.purple)
+call eink#highlight('OctoBubbleYellow', s:palette.bg0, s:palette.yellow)
+call eink#highlight('OctoBubbleBlue', s:palette.bg0, s:palette.blue)
+call eink#highlight('OctoBubbleGrey', s:palette.bg0, s:palette.grey1)
 highlight! link OctoGreen Green
 highlight! link OctoRed Red
 highlight! link OctoPurple Purple
@@ -1595,7 +1595,7 @@ highlight! link QuickmenuHeader Orange
 " syn_end }}}
 " syn_begin: undotree {{{
 " https://github.com/mbbill/undotree
-call eink-nvim#highlight('UndotreeSavedBig', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('UndotreeSavedBig', s:palette.purple, s:palette.none, 'bold')
 highlight! link UndotreeNode Orange
 highlight! link UndotreeNodeCurrent Red
 highlight! link UndotreeSeq Green
@@ -1630,16 +1630,16 @@ highlight! link DashboardFooter Orange
 " syn_end }}}
 " syn_begin: markdown {{{
 " builtin: {{{
-call eink-nvim#highlight('markdownH1', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownH2', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownH3', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownH4', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownH5', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownH6', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownUrl', s:palette.blue, s:palette.none, 'underline')
-call eink-nvim#highlight('markdownItalic', s:palette.none, s:palette.none, 'italic')
-call eink-nvim#highlight('markdownBold', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('markdownItalicDelimiter', s:palette.grey1, s:palette.none, 'italic')
+call eink#highlight('markdownH1', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('markdownH2', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('markdownH3', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('markdownH4', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('markdownH5', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('markdownH6', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('markdownUrl', s:palette.blue, s:palette.none, 'underline')
+call eink#highlight('markdownItalic', s:palette.none, s:palette.none, 'italic')
+call eink#highlight('markdownBold', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('markdownItalicDelimiter', s:palette.grey1, s:palette.none, 'italic')
 highlight! link markdownCode Green
 highlight! link markdownCodeBlock Aqua
 highlight! link markdownCodeDelimiter Aqua
@@ -1659,9 +1659,9 @@ highlight! link markdownBoldDelimiter Grey
 highlight! link markdownId Yellow
 " }}}
 " vim-markdown: https://github.com/gabrielelana/vim-markdown {{{
-call eink-nvim#highlight('mkdURL', s:palette.blue, s:palette.none, 'underline')
-call eink-nvim#highlight('mkdInlineURL', s:palette.purple, s:palette.none, 'underline')
-call eink-nvim#highlight('mkdItalic', s:palette.grey1, s:palette.none, 'italic')
+call eink#highlight('mkdURL', s:palette.blue, s:palette.none, 'underline')
+call eink#highlight('mkdInlineURL', s:palette.purple, s:palette.none, 'underline')
+call eink#highlight('mkdItalic', s:palette.grey1, s:palette.none, 'italic')
 highlight! link mkdCodeDelimiter Aqua
 highlight! link mkdBold Grey
 highlight! link mkdLink Purple
@@ -1673,16 +1673,16 @@ highlight! link mkdId Yellow
 " }}}
 " syn_end }}}
 " syn_begin: vimwiki {{{
-call eink-nvim#highlight('VimwikiHeader1', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiHeader2', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiHeader3', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiHeader4', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiHeader5', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiHeader6', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiLink', s:palette.blue, s:palette.none, 'underline')
-call eink-nvim#highlight('VimwikiItalic', s:palette.none, s:palette.none, 'italic')
-call eink-nvim#highlight('VimwikiBold', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('VimwikiUnderline', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('VimwikiHeader1', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('VimwikiHeader2', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('VimwikiHeader3', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('VimwikiHeader4', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('VimwikiHeader5', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('VimwikiHeader6', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('VimwikiLink', s:palette.blue, s:palette.none, 'underline')
+call eink#highlight('VimwikiItalic', s:palette.none, s:palette.none, 'italic')
+call eink#highlight('VimwikiBold', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('VimwikiUnderline', s:palette.none, s:palette.none, 'underline')
 highlight! link VimwikiList Red
 highlight! link VimwikiTag Aqua
 highlight! link VimwikiCode Green
@@ -1695,7 +1695,7 @@ highlight! link VimwikiNoExistsLink Red
 " syn_end }}}
 " syn_begin: rst {{{
 " builtin: https://github.com/marshallward/vim-restructuredtext {{{
-call eink-nvim#highlight('rstStandaloneHyperlink', s:palette.purple, s:palette.none, 'underline')
+call eink#highlight('rstStandaloneHyperlink', s:palette.purple, s:palette.none, 'underline')
 highlight! link rstSubstitutionReference Blue
 highlight! link rstInterpretedTextOrHyperlinkReference Aqua
 highlight! link rstTableLines Grey
@@ -1733,20 +1733,20 @@ highlight! link texAuthorArg BlueItalic
 " syn_end }}}
 " syn_begin: html/markdown/javascriptreact/typescriptreact {{{
 " builtin: https://notabug.org/jorgesumle/vim-html-syntax {{{
-call eink-nvim#highlight('htmlH1', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlH2', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlH3', s:palette.yellow, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlH4', s:palette.green, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlH5', s:palette.blue, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlH6', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlLink', s:palette.none, s:palette.none, 'underline')
-call eink-nvim#highlight('htmlBold', s:palette.none, s:palette.none, 'bold')
-call eink-nvim#highlight('htmlBoldUnderline', s:palette.none, s:palette.none, 'bold,underline')
-call eink-nvim#highlight('htmlBoldItalic', s:palette.none, s:palette.none, 'bold,italic')
-call eink-nvim#highlight('htmlBoldUnderlineItalic', s:palette.none, s:palette.none, 'bold,underline,italic')
-call eink-nvim#highlight('htmlUnderline', s:palette.none, s:palette.none, 'underline')
-call eink-nvim#highlight('htmlUnderlineItalic', s:palette.none, s:palette.none, 'underline,italic')
-call eink-nvim#highlight('htmlItalic', s:palette.none, s:palette.none, 'italic')
+call eink#highlight('htmlH1', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('htmlH2', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('htmlH3', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('htmlH4', s:palette.green, s:palette.none, 'bold')
+call eink#highlight('htmlH5', s:palette.blue, s:palette.none, 'bold')
+call eink#highlight('htmlH6', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('htmlLink', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('htmlBold', s:palette.none, s:palette.none, 'bold')
+call eink#highlight('htmlBoldUnderline', s:palette.none, s:palette.none, 'bold,underline')
+call eink#highlight('htmlBoldItalic', s:palette.none, s:palette.none, 'bold,italic')
+call eink#highlight('htmlBoldUnderlineItalic', s:palette.none, s:palette.none, 'bold,underline,italic')
+call eink#highlight('htmlUnderline', s:palette.none, s:palette.none, 'underline')
+call eink#highlight('htmlUnderlineItalic', s:palette.none, s:palette.none, 'underline,italic')
+call eink#highlight('htmlItalic', s:palette.none, s:palette.none, 'italic')
 highlight! link htmlTag Green
 highlight! link htmlEndTag Blue
 highlight! link htmlTagN OrangeItalic
@@ -2303,7 +2303,7 @@ highlight! link pythonNone Aqua
 highlight! link pythonDot Grey
 " }}}
 " semshi: https://github.com/numirias/semshi {{{
-call eink-nvim#highlight('semshiUnresolved', s:palette.yellow, s:palette.none, 'undercurl')
+call eink#highlight('semshiUnresolved', s:palette.yellow, s:palette.none, 'undercurl')
 highlight! link semshiImported TSInclude
 highlight! link semshiParameter TSParameter
 highlight! link semshiParameterUnused Grey
@@ -2664,7 +2664,7 @@ highlight! link ps1BuiltIn Yellow
 " }}}
 " syn_end }}}
 " syn_begin: vim {{{
-call eink-nvim#highlight('vimCommentTitle', s:palette.grey1, s:palette.none, 'bold')
+call eink#highlight('vimCommentTitle', s:palette.grey1, s:palette.none, 'bold')
 highlight! link vimLet Orange
 highlight! link vimFunction Green
 highlight! link vimIsCommand Fg
@@ -2840,7 +2840,7 @@ highlight! link yamlKey yamlBlockMappingKey  " stephpy/vim-yaml
 " syn_end }}}
 " syn_begin: toml {{{
 " builtin: https://github.com/cespare/vim-toml {{{
-call eink-nvim#highlight('tomlTable', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('tomlTable', s:palette.orange, s:palette.none, 'bold')
 highlight! link tomlKey Green
 highlight! link tomlString Fg
 highlight! link tomlDate Special
@@ -2867,17 +2867,17 @@ highlight! link gitcommitArrow Grey
 highlight! link gitcommitFile Green
 " syn_end }}}
 " syn_begin: dosini {{{
-call eink-nvim#highlight('dosiniHeader', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('dosiniHeader', s:palette.red, s:palette.none, 'bold')
 highlight! link dosiniLabel Yellow
 highlight! link dosiniValue Green
 highlight! link dosiniNumber Green
 " syn_end }}}
 " syn_begin: help {{{
-call eink-nvim#highlight('helpNote', s:palette.purple, s:palette.none, 'bold')
-call eink-nvim#highlight('helpHeadline', s:palette.red, s:palette.none, 'bold')
-call eink-nvim#highlight('helpHeader', s:palette.orange, s:palette.none, 'bold')
-call eink-nvim#highlight('helpURL', s:palette.green, s:palette.none, 'underline')
-call eink-nvim#highlight('helpHyperTextEntry', s:palette.yellow, s:palette.none, 'bold')
+call eink#highlight('helpNote', s:palette.purple, s:palette.none, 'bold')
+call eink#highlight('helpHeadline', s:palette.red, s:palette.none, 'bold')
+call eink#highlight('helpHeader', s:palette.orange, s:palette.none, 'bold')
+call eink#highlight('helpURL', s:palette.green, s:palette.none, 'underline')
+call eink#highlight('helpHyperTextEntry', s:palette.yellow, s:palette.none, 'bold')
 highlight! link helpHyperTextJump Yellow
 highlight! link helpCommand Aqua
 highlight! link helpExample Green

@@ -1,13 +1,13 @@
 -- =============================================================================
 -- URL: https://github.com/MeganerdDev/eink-nvim
--- Filename: lua/lualine/themes/eink-nvim.lua
+-- Filename: lua/lualine/themes/eink.lua
 -- Author: MeganerdDev
 -- Email: meganerd@meganerd.org
 -- License: MIT License
 -- =============================================================================
 
-local configuration = vim.fn['eink-nvim#get_configuration']()
-local palette = vim.fn['eink-nvim#get_palette'](configuration.background, configuration.colors_override)
+local configuration = vim.fn['eink#get_configuration']()
+local palette = vim.fn['eink#get_palette'](configuration.background, configuration.colors_override)
 
 if configuration.transparent_background == 2 then
   palette.bg1 = palette.none
