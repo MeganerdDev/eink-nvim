@@ -26,11 +26,11 @@ The semantics of each color in the context of syntax highlighting is described i
 ![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
 ![#ffffff][ffffff]![#ffffff][ffffff]![#3C4841][3C4841]![#384B55][384B55]![#45443c][45443c]  
 <sub>medium</sub>  
-![#232A2E][232A2E]![#2D353B][2D353B]![#ffffff][ffffff]![#3D484D][3D484D]![#475258][475258]![#4F585E][4F585E]![#56635f][56635f]  
-![#543A48][543A48]![#514045][514045]![#425047][425047]![#3A515D][3A515D]![#4D4C43][4D4C43]  
+![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
+![#ffffff][ffffff]![#514045][514045]![#425047][425047]![#3A515D][3A515D]![#4D4C43][4D4C43]  
 <sub>low</sub>  
-![#293136][293136]![#333C43][333C43]![#3A464C][3A464C]![#434F55][434F55]![#4D5960][4D5960]![#555F66][555F66]![#5D6B66][5D6B66]  
-![#5C3F4F][5C3F4F]![#59464C][59464C]![#48584E][48584E]![#3F5865][3F5865]![#55544A][55544A]
+![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
+![#ffffff][ffffff]![#59464C][59464C]![#48584E][48584E]![#3F5865][3F5865]![#55544A][55544A]
 
 #### Foreground Colors (palette2)
 
@@ -48,14 +48,14 @@ The semantics of each color in the context of syntax highlighting is described i
 #### Background Colors (palette1)
 
 <sub>hard</sub>  
-![#F2EFDF][F2EFDF]![#FFFBEF][FFFBEF]![#F8F5E4][F8F5E4]![#F2EFDF][F2EFDF]![#EDEADA][EDEADA]![#E8E5D5][E8E5D5]![#BEC5B2][BEC5B2]  
+![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
 ![#F0F2D4][F0F2D4]![#FFE7DE][FFE7DE]![#F3F5D9][F3F5D9]![#ECF5ED][ECF5ED]![#FEF2D5][FEF2D5]  
 <sub>medium</sub>  
 ![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
 ![#ffffff][ffffff]![#FBE3DA][FBE3DA]![#F0F1D2][F0F1D2]![#E9F0E9][E9F0E9]![#FAEDCD][FAEDCD]  
 <sub>low</sub>  
-![#E5DFC5][E5DFC5]![#F3EAD3][F3EAD3]![#EAE4CA][EAE4CA]![#E5DFC5][E5DFC5]![#DDD8BE][DDD8BE]![#D8D3BA][D8D3BA]![#B9C0AB][B9C0AB]  
-![#E1E4BD][E1E4BD]![#F4DBD0][F4DBD0]![#E5E6C5][E5E6C5]![#E1E7DD][E1E7DD]![#F1E4C5][F1E4C5]
+![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]![#ffffff][ffffff]  
+![#ffffff][ffffff]![#F4DBD0][F4DBD0]![#E5E6C5][E5E6C5]![#E1E7DD][E1E7DD]![#F1E4C5][F1E4C5]
 
 #### Foreground Colors (palette2)
 
@@ -119,40 +119,40 @@ contrast settings.
 [45443c]: https://fakeimg.pl/96/45443c/D3C6AA/?text=%2345443c&font=noto&font_size=12 "bg_yellow - #45443c"
 
 <!-- dark medium palette1 -->
-[232A2E]: https://fakeimg.pl/96/232A2E/D3C6AA/?text=%23232A2E&font=noto&font_size=12 "bg_dim - #232A2E"
-[2D353B]: https://fakeimg.pl/96/2D353B/D3C6AA/?text=%232D353B&font=noto&font_size=12 "bg0 - #2D353B"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg_dim - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg0 - #ffffff"
 [ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg1 - #ffffff"
-[3D484D]: https://fakeimg.pl/96/3D484D/D3C6AA/?text=%233D484D&font=noto&font_size=12 "bg2 - #3D484D"
-[475258]: https://fakeimg.pl/96/475258/D3C6AA/?text=%23475258&font=noto&font_size=12 "bg3 - #475258"
-[4F585E]: https://fakeimg.pl/96/4F585E/D3C6AA/?text=%234F585E&font=noto&font_size=12 "bg4 - #4F585E"
-[56635f]: https://fakeimg.pl/96/56635f/D3C6AA/?text=%2356635f&font=noto&font_size=12 "bg5 - #56635f"
-[543A48]: https://fakeimg.pl/96/543A48/D3C6AA/?text=%23543A48&font=noto&font_size=12 "bg_visual - #543A48"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg2 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg3 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg4 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg5 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg_visual - #ffffff"
 [514045]: https://fakeimg.pl/96/514045/D3C6AA/?text=%23514045&font=noto&font_size=12 "bg_reg - #514045"
 [425047]: https://fakeimg.pl/96/425047/D3C6AA/?text=%23425047&font=noto&font_size=12 "bg_green - #425047"
 [3A515D]: https://fakeimg.pl/96/3A515D/D3C6AA/?text=%233A515D&font=noto&font_size=12 "bg_blue - #3A515D"
 [4D4C43]: https://fakeimg.pl/96/4D4C43/D3C6AA/?text=%234D4C43&font=noto&font_size=12 "bg_yellow - #4D4C43"
 
 <!-- dark low palette1 -->
-[293136]: https://fakeimg.pl/96/293136/D3C6AA/?text=%23293136&font=noto&font_size=12 "bg_dim - #293136"
-[333C43]: https://fakeimg.pl/96/333C43/D3C6AA/?text=%23333C43&font=noto&font_size=12 "bg0 - #333C43"
-[3A464C]: https://fakeimg.pl/96/3A464C/D3C6AA/?text=%233A464C&font=noto&font_size=12 "bg1 - #3A464C"
-[434F55]: https://fakeimg.pl/96/434F55/D3C6AA/?text=%23434F55&font=noto&font_size=12 "bg2 - #434F55"
-[4D5960]: https://fakeimg.pl/96/4D5960/D3C6AA/?text=%234D5960&font=noto&font_size=12 "bg3 - #4D5960"
-[555F66]: https://fakeimg.pl/96/555F66/D3C6AA/?text=%23555F66&font=noto&font_size=12 "bg4 - #555F66"
-[5D6B66]: https://fakeimg.pl/96/5D6B66/D3C6AA/?text=%235D6B66&font=noto&font_size=12 "bg5 - #5D6B66"
-[5C3F4F]: https://fakeimg.pl/96/5C3F4F/D3C6AA/?text=%235C3F4F&font=noto&font_size=12 "bg_visual - #5C3F4F"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg_dim - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg0 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg1 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg2 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg3 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg4 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg5 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg_visual - #ffffff"
 [59464C]: https://fakeimg.pl/96/59464C/D3C6AA/?text=%2359464C&font=noto&font_size=12 "bg_reg - #59464C"
 [48584E]: https://fakeimg.pl/96/48584E/D3C6AA/?text=%2348584E&font=noto&font_size=12 "bg_green - #48584E"
 [3F5865]: https://fakeimg.pl/96/3F5865/D3C6AA/?text=%233F5865&font=noto&font_size=12 "bg_blue - #3F5865"
 [55544A]: https://fakeimg.pl/96/55544A/D3C6AA/?text=%2355544A&font=noto&font_size=12 "bg_yellow - #55544A"
 
 <!-- light hard palette1 -->
-[F2EFDF]: https://fakeimg.pl/96/F2EFDF/5C6A72/?text=%23F2EFDF&font=noto&font_size=12 "bg_dim/bg2 - #F2EFDF"
-[FFFBEF]: https://fakeimg.pl/96/FFFBEF/5C6A72/?text=%23FFFBEF&font=noto&font_size=12 "bg0 - #FFFBEF"
-[F8F5E4]: https://fakeimg.pl/96/F8F5E4/5C6A72/?text=%23F8F5E4&font=noto&font_size=12 "bg1 - #F8F5E4"
-[EDEADA]: https://fakeimg.pl/96/EDEADA/5C6A72/?text=%23EDEADA&font=noto&font_size=12 "bg3 - #EDEADA"
-[E8E5D5]: https://fakeimg.pl/96/E8E5D5/5C6A72/?text=%23E8E5D5&font=noto&font_size=12 "bg4 - #E8E5D5"
-[BEC5B2]: https://fakeimg.pl/96/BEC5B2/5C6A72/?text=%23BEC5B2&font=noto&font_size=12 "bg5 - #BEC5B2"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg_dim/bg2 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg0 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg1 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg3 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg4 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg5 - #ffffff"
 [F0F2D4]: https://fakeimg.pl/96/F0F2D4/5C6A72/?text=%23F0F2D4&font=noto&font_size=12 "bg_visual - #F0F2D4"
 [FFE7DE]: https://fakeimg.pl/96/FFE7DE/5C6A72/?text=%23FFE7DE&font=noto&font_size=12 "bg_reg - #FFE7DE"
 [F3F5D9]: https://fakeimg.pl/96/F3F5D9/5C6A72/?text=%23F3F5D9&font=noto&font_size=12 "bg_green - #F3F5D9"
@@ -173,30 +173,30 @@ contrast settings.
 [FAEDCD]: https://fakeimg.pl/96/FAEDCD/5C6A72/?text=%23FAEDCD&font=noto&font_size=12 "bg_yellow - #FAEDCD"
 
 <!-- light low palette1 -->
-[E5DFC5]: https://fakeimg.pl/96/E5DFC5/5C6A72/?text=%23E5DFC5&font=noto&font_size=12 "bg_dim/bg2 - #E5DFC5"
-[F3EAD3]: https://fakeimg.pl/96/F3EAD3/5C6A72/?text=%23F3EAD3&font=noto&font_size=12 "bg0 - #F3EAD3"
-[EAE4CA]: https://fakeimg.pl/96/EAE4CA/5C6A72/?text=%23EAE4CA&font=noto&font_size=12 "bg1 - #EAE4CA"
-[DDD8BE]: https://fakeimg.pl/96/DDD8BE/5C6A72/?text=%23DDD8BE&font=noto&font_size=12 "bg3 - #DDD8BE"
-[D8D3BA]: https://fakeimg.pl/96/D8D3BA/5C6A72/?text=%23D8D3BA&font=noto&font_size=12 "bg4 - #D8D3BA"
-[B9C0AB]: https://fakeimg.pl/96/B9C0AB/5C6A72/?text=%23B9C0AB&font=noto&font_size=12 "bg5 - #B9C0AB"
-[E1E4BD]: https://fakeimg.pl/96/E1E4BD/5C6A72/?text=%23E1E4BD&font=noto&font_size=12 "bg_visual - #E1E4BD"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg_dim/bg2 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg0 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg1 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg3 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg4 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg5 - #ffffff"
+[ffffff]: https://fakeimg.pl/96/ffffff/5C6A72/?text=%23ffffff&font=noto&font_size=12 "bg_visual - #ffffff"
 [F4DBD0]: https://fakeimg.pl/96/F4DBD0/5C6A72/?text=%23F4DBD0&font=noto&font_size=12 "bg_reg - #F4DBD0"
 [E5E6C5]: https://fakeimg.pl/96/E5E6C5/5C6A72/?text=%23E5E6C5&font=noto&font_size=12 "bg_green - #E5E6C5"
 [E1E7DD]: https://fakeimg.pl/96/E1E7DD/5C6A72/?text=%23E1E7DD&font=noto&font_size=12 "bg_blue - #E1E7DD"
 [F1E4C5]: https://fakeimg.pl/96/F1E4C5/5C6A72/?text=%23F1E4C5&font=noto&font_size=12 "bg_yellow - #F1E4C5"
 
 <!-- dark palette2 -->
-[D3C6AA]: https://fakeimg.pl/96/D3C6AA/2D353B/?text=%23D3C6AA&font=noto&font_size=12 "fg/statusline2 - #D3C6AA"
-[E67E80]: https://fakeimg.pl/96/E67E80/2D353B/?text=%23E67E80&font=noto&font_size=12 "red/statusline3 - #E67E80"
-[E69875]: https://fakeimg.pl/96/E69875/2D353B/?text=%23E69875&font=noto&font_size=12 "orange - #E69875"
-[DBBC7F]: https://fakeimg.pl/96/DBBC7F/2D353B/?text=%23DBBC7F&font=noto&font_size=12 "yellow - #DBBC7F"
-[A7C080]: https://fakeimg.pl/96/A7C080/2D353B/?text=%23A7C080&font=noto&font_size=12 "green/statusline1 - #A7C080"
-[83C092]: https://fakeimg.pl/96/83C092/2D353B/?text=%2383C092&font=noto&font_size=12 "aqua - #83C092"
-[7FBBB3]: https://fakeimg.pl/96/7FBBB3/2D353B/?text=%237FBBB3&font=noto&font_size=12 "blue - #7FBBB3"
-[D699B6]: https://fakeimg.pl/96/D699B6/2D353B/?text=%23D699B6&font=noto&font_size=12 "purple - #D699B6"
-[7A8478]: https://fakeimg.pl/96/7A8478/2D353B/?text=%237A8478&font=noto&font_size=12 "grey0 - #7A8478"
-[859289]: https://fakeimg.pl/96/859289/2D353B/?text=%23859289&font=noto&font_size=12 "grey1 - #859289"
-[9DA9A0]: https://fakeimg.pl/96/9DA9A0/2D353B/?text=%239DA9A0&font=noto&font_size=12 "grey2 - #9DA9A0"
+[D3C6AA]: https://fakeimg.pl/96/D3C6AA/ffffff/?text=%23D3C6AA&font=noto&font_size=12 "fg/statusline2 - #D3C6AA"
+[E67E80]: https://fakeimg.pl/96/E67E80/ffffff/?text=%23E67E80&font=noto&font_size=12 "red/statusline3 - #E67E80"
+[E69875]: https://fakeimg.pl/96/E69875/ffffff/?text=%23E69875&font=noto&font_size=12 "orange - #E69875"
+[DBBC7F]: https://fakeimg.pl/96/DBBC7F/ffffff/?text=%23DBBC7F&font=noto&font_size=12 "yellow - #DBBC7F"
+[A7C080]: https://fakeimg.pl/96/A7C080/ffffff/?text=%23A7C080&font=noto&font_size=12 "green/statusline1 - #A7C080"
+[83C092]: https://fakeimg.pl/96/83C092/ffffff/?text=%2383C092&font=noto&font_size=12 "aqua - #83C092"
+[7FBBB3]: https://fakeimg.pl/96/7FBBB3/ffffff/?text=%237FBBB3&font=noto&font_size=12 "blue - #7FBBB3"
+[D699B6]: https://fakeimg.pl/96/D699B6/ffffff/?text=%23D699B6&font=noto&font_size=12 "purple - #D699B6"
+[7A8478]: https://fakeimg.pl/96/7A8478/ffffff/?text=%237A8478&font=noto&font_size=12 "grey0 - #7A8478"
+[859289]: https://fakeimg.pl/96/859289/ffffff/?text=%23859289&font=noto&font_size=12 "grey1 - #859289"
+[9DA9A0]: https://fakeimg.pl/96/9DA9A0/ffffff/?text=%239DA9A0&font=noto&font_size=12 "grey2 - #9DA9A0"
 
 <!-- light palette2 -->
 [5C6A72]: https://fakeimg.pl/96/5C6A72/ffffff/?text=%235C6A72&font=noto&font_size=12 "fg - #5C6A72"
@@ -215,14 +215,14 @@ contrast settings.
 [E66868]: https://fakeimg.pl/96/E66868/ffffff/?text=%23E66868&font=noto&font_size=12 "statusline3 - #E66868"
 
 <!-- highlights descriptions (dark medium values) -->
-[hl_bgd]: https://fakeimg.pl/48/232A2E/232A2E/ "bg_dim - #232A2E"
-[hl_bg0]: https://fakeimg.pl/48/2D353B/2D353B/ "bg0 - #2D353B"
+[hl_bgd]: https://fakeimg.pl/48/ffffff/ffffff/ "bg_dim - #ffffff"
+[hl_bg0]: https://fakeimg.pl/48/ffffff/ffffff/ "bg0 - #ffffff"
 [hl_bg1]: https://fakeimg.pl/48/ffffff/ffffff/ "bg1 - #ffffff"
-[hl_bg2]: https://fakeimg.pl/48/3D484D/3D484D/ "bg2 - #3D484D"
-[hl_bg3]: https://fakeimg.pl/48/475258/475258/ "bg3 - #475258"
-[hl_bg4]: https://fakeimg.pl/48/4F585E/4F585E/ "bg4 - #4F585E"
-[hl_bg5]: https://fakeimg.pl/48/56635f/56635f/ "bg5 - #56635f"
-[hl_bgv]: https://fakeimg.pl/48/543A48/543A48/ "bg_visual - #543A48"
+[hl_bg2]: https://fakeimg.pl/48/ffffff/ffffff/ "bg2 - #ffffff"
+[hl_bg3]: https://fakeimg.pl/48/ffffff/ffffff/ "bg3 - #ffffff"
+[hl_bg4]: https://fakeimg.pl/48/ffffff/ffffff/ "bg4 - #ffffff"
+[hl_bg5]: https://fakeimg.pl/48/ffffff/ffffff/ "bg5 - #ffffff"
+[hl_bgv]: https://fakeimg.pl/48/ffffff/ffffff/ "bg_visual - #ffffff"
 [hl_bgr]: https://fakeimg.pl/48/514045/514045/ "bg_reg - #514045"
 [hl_bgg]: https://fakeimg.pl/48/425047/425047/ "bg_green - #425047"
 [hl_bgb]: https://fakeimg.pl/48/3A515D/3A515D/ "bg_blue - #3A515D"
