@@ -80,14 +80,14 @@ function! eink#get_palette(background, colors_override) "{{{
             \ }
     else
       let palette1 = {
-            \ 'bg_dim':     ['#efebd4',   '223'],
-            \ 'bg0':        ['#fdf6e3',   '230'],
-            \ 'bg1':        ['#f4f0d9',   '228'],
-            \ 'bg2':        ['#efebd4',   '223'],
-            \ 'bg3':        ['#e6e2cc',   '223'],
-            \ 'bg4':        ['#e0dcc7',   '223'],
-            \ 'bg5':        ['#bdc3af',   '223'],
-            \ 'bg_visual':  ['#eaedc8',   '194'],
+            \ 'bg_dim':     ['#ffffff',   '223'],
+            \ 'bg0':        ['#ffffff',   '230'],
+            \ 'bg1':        ['#ffffff',   '228'],
+            \ 'bg2':        ['#ffffff',   '223'],
+            \ 'bg3':        ['#ffffff',   '223'],
+            \ 'bg4':        ['#ffffff',   '223'],
+            \ 'bg5':        ['#ffffff',   '223'],
+            \ 'bg_visual':  ['#ffffff',   '194'],
             \ 'bg_red':     ['#fbe3da',   '217'],
             \ 'bg_green':   ['#f0f1d2',   '194'],
             \ 'bg_blue':    ['#e9f0e9',   '117'],
