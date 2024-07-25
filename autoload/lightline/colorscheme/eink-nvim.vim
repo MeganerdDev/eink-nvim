@@ -1,14 +1,14 @@
 " =============================================================================
 " URL: https://github.com/MeganerdDev/eink-nvim
-" Filename: autoload/lightline/colorscheme/neverforest.vim
+" Filename: autoload/lightline/colorscheme/eink-nvim.vim
 " Author: MeganerdDev
 " Email: meganerd@meganerd.org
 " License: MIT License
 " =============================================================================
 
 " Initialization: {{{
-let s:configuration = neverforest#get_configuration()
-let s:palette = neverforest#get_palette(s:configuration.background, s:configuration.colors_override)
+let s:configuration = eink-nvim#get_configuration()
+let s:palette = eink-nvim#get_palette(s:configuration.background, s:configuration.colors_override)
 if s:configuration.transparent_background == 2
   let s:palette.bg1 = s:palette.none
 endif
@@ -161,7 +161,7 @@ if s:configuration.lightline_disable_bold
   let s:p.tabline.tabsel = [ [ s:tab_sel_fg, s:tab_sel_bg ] ]
 endif
 
-let g:lightline#colorscheme#neverforest#palette = lightline#colorscheme#flatten(s:p)
+let g:lightline#colorscheme#eink-nvim#palette = lightline#colorscheme#flatten(s:p)
 "}}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker fmr={{{,}}}:

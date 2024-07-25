@@ -26,7 +26,7 @@ The semantics of each color in the context of syntax highlighting is described i
 ![#1E2326][1E2326]![#272E33][272E33]![#2E383C][2E383C]![#374145][374145]![#414B50][414B50]![#495156][495156]![#4F5B58][4F5B58]  
 ![#4C3743][4C3743]![#493B40][493B40]![#3C4841][3C4841]![#384B55][384B55]![#45443c][45443c]  
 <sub>medium</sub>  
-![#232A2E][232A2E]![#2D353B][2D353B]![#343F44][343F44]![#3D484D][3D484D]![#475258][475258]![#4F585E][4F585E]![#56635f][56635f]  
+![#232A2E][232A2E]![#2D353B][2D353B]![#ffffff][ffffff]![#3D484D][3D484D]![#475258][475258]![#4F585E][4F585E]![#56635f][56635f]  
 ![#543A48][543A48]![#514045][514045]![#425047][425047]![#3A515D][3A515D]![#4D4C43][4D4C43]  
 <sub>low</sub>  
 ![#293136][293136]![#333C43][333C43]![#3A464C][3A464C]![#434F55][434F55]![#4D5960][4D5960]![#555F66][555F66]![#5D6B66][5D6B66]  
@@ -76,14 +76,14 @@ contrast settings.
 
 |                    | Hex     | Identifier    | Usages                                                                                                                    |
 |--------------------|---------|---------------|---------------------------------------------------------------------------------------------------------------------------|
-| ![#232A2E][hl_bgd] | #232A2E | `bg_dim`      | Dimmed Background                                                                                                         |
-| ![#2D353B][hl_bg0] | #2D353B | `bg0`         | Default Background, Line Numbers Background, Signs Background, Status Line Background (inactive), Tab Line Label (active) |
-| ![#343F44][hl_bg1] | #343F44 | `bg1`         | Cursor Line Background, Color Columns, Closed Folds Background, Status Line Background (active), Tab Line Background      |
-| ![#3D484D][hl_bg2] | #3D484D | `bg2`         | Popup Menu Background, Floating Window Background, Window Toolbar Background                                              |
-| ![#475258][hl_bg3] | #475258 | `bg3`         | List Chars, Special Keys, Tab Line Label Background (inactive)                                                            |
-| ![#4F585E][hl_bg4] | #4F585E | `bg4`         | Window Splits Separators, Whitespaces, Breaks                                                                             |
-| ![#56635f][hl_bg5] | #56635f | `bg5`         | _Not currently used_                                                                                                      |
-| ![#543A48][hl_bgv] | #543A48 | `bg_visual`   | Visual Selection                                                                                                          |
+| ![#ffffff][hl_bgd] | #ffffff | `bg_dim`      | Dimmed Background                                                                                                         |
+| ![#ffffff][hl_bg0] | #ffffff | `bg0`         | Default Background, Line Numbers Background, Signs Background, Status Line Background (inactive), Tab Line Label (active) |
+| ![#ffffff][hl_bg1] | #ffffff | `bg1`         | Cursor Line Background, Color Columns, Closed Folds Background, Status Line Background (active), Tab Line Background      |
+| ![#ffffff][hl_bg2] | #ffffff | `bg2`         | Popup Menu Background, Floating Window Background, Window Toolbar Background                                              |
+| ![#ffffff][hl_bg3] | #ffffff | `bg3`         | List Chars, Special Keys, Tab Line Label Background (inactive)                                                            |
+| ![#ffffff][hl_bg4] | #ffffff | `bg4`         | Window Splits Separators, Whitespaces, Breaks                                                                             |
+| ![#ffffff][hl_bg5] | #ffffff | `bg5`         | _Not currently used_                                                                                                      |
+| ![#61ed11][hl_bgv] | #61ed11 | `bg_visual`   | Visual Selection                                                                                                          |
 | ![#514045][hl_bgr] | #514045 | `bg_red`      | Diff Deleted Line Background, Error Highlights                                                                            |
 | ![#425047][hl_bgg] | #425047 | `bg_green`    | Diff Added Line Background, Hint Highlights                                                                               |
 | ![#3A515D][hl_bgb] | #3A515D | `bg_blue`     | Diff Changed Line Background, Info Highlights                                                                             |
@@ -121,7 +121,7 @@ contrast settings.
 <!-- dark medium palette1 -->
 [232A2E]: https://fakeimg.pl/96/232A2E/D3C6AA/?text=%23232A2E&font=noto&font_size=12 "bg_dim - #232A2E"
 [2D353B]: https://fakeimg.pl/96/2D353B/D3C6AA/?text=%232D353B&font=noto&font_size=12 "bg0 - #2D353B"
-[343F44]: https://fakeimg.pl/96/343F44/D3C6AA/?text=%23343F44&font=noto&font_size=12 "bg1 - #343F44"
+[ffffff]: https://fakeimg.pl/96/ffffff/D3C6AA/?text=%23ffffff&font=noto&font_size=12 "bg1 - #ffffff"
 [3D484D]: https://fakeimg.pl/96/3D484D/D3C6AA/?text=%233D484D&font=noto&font_size=12 "bg2 - #3D484D"
 [475258]: https://fakeimg.pl/96/475258/D3C6AA/?text=%23475258&font=noto&font_size=12 "bg3 - #475258"
 [4F585E]: https://fakeimg.pl/96/4F585E/D3C6AA/?text=%234F585E&font=noto&font_size=12 "bg4 - #4F585E"
@@ -217,7 +217,7 @@ contrast settings.
 <!-- highlights descriptions (dark medium values) -->
 [hl_bgd]: https://fakeimg.pl/48/232A2E/232A2E/ "bg_dim - #232A2E"
 [hl_bg0]: https://fakeimg.pl/48/2D353B/2D353B/ "bg0 - #2D353B"
-[hl_bg1]: https://fakeimg.pl/48/343F44/343F44/ "bg1 - #343F44"
+[hl_bg1]: https://fakeimg.pl/48/ffffff/ffffff/ "bg1 - #ffffff"
 [hl_bg2]: https://fakeimg.pl/48/3D484D/3D484D/ "bg2 - #3D484D"
 [hl_bg3]: https://fakeimg.pl/48/475258/475258/ "bg3 - #475258"
 [hl_bg4]: https://fakeimg.pl/48/4F585E/4F585E/ "bg4 - #4F585E"
